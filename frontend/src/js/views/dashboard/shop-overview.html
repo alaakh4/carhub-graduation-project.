@@ -1,0 +1,37 @@
+<div class="shopdash-page">
+  <div class="shopdash-kpis">
+    <div class="kpi"><div class="kpi-label">Pending</div><div class="kpi-val" data-bind="text: kpiPending"></div></div>
+    <div class="kpi"><div class="kpi-label">In Delivery</div><div class="kpi-val" data-bind="text: kpiDelivery"></div></div>
+    <div class="kpi"><div class="kpi-label">Completed</div><div class="kpi-val" data-bind="text: kpiCompleted"></div></div>
+    <div class="kpi"><div class="kpi-label">Rejected</div><div class="kpi-val" data-bind="text: kpiRejected"></div></div>
+    <div class="kpi"><div class="kpi-label">Low Stock</div><div class="kpi-val" data-bind="text: kpiLowStock"></div></div>
+  </div>
+
+  <div class="shopdash-panel">
+    <div class="panel-head">
+      <h3>Recent Orders</h3>
+    </div>
+
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Order</th><th>Part</th><th>Qty</th><th>Status</th><th>Date</th><th class="right">Actions</th>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: recentOrders">
+          <tr>
+            <td data-bind="text: '#' + id"></td>
+            <td data-bind="text: part_name || '-'"></td>
+            <td data-bind="text: quantity"></td>
+            <td><span class="pill" data-bind="text: statusText, css: statusClass"></span></td>
+            <td data-bind="text: created_at"></td>
+            <td class="right">
+              <div class="actions" data-bind="html: actionsHtml"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

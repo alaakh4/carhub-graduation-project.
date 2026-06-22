@@ -1,0 +1,69 @@
+<!-- AutoCare Hub - Login page (JET view) -->
+<div class="auth-app">
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Login</h1>
+      <p>Sign in to manage your profile and orders</p>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <section class="auth-main">
+    <div class="container">
+      <div class="auth-card">
+
+        <!-- Role selector -->
+        <div class="auth-role">
+          <h3>Login as</h3>
+          <div class="role-options">
+            <label class="role-option">
+              <input type="radio" name="role" value="client" data-bind="checked: role" />
+              <span><i class="fas fa-user"></i> Client</span>
+            </label>
+            <label class="role-option">
+              <input type="radio" name="role" value="shop" data-bind="checked: role" />
+              <span><i class="fas fa-wrench"></i> Workshop</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Messages -->
+        <div class="auth-msg error" data-bind="visible: errorMsg">
+          <i class="fas fa-circle-exclamation"></i>
+          <span data-bind="text: errorMsg"></span>
+        </div>
+
+        <!-- Form -->
+        <form class="auth-form" data-bind="submit: login">
+          <div class="form-group">
+            <label>Email</label>
+            <input class="auth-input" type="email" placeholder="you@email.com" autocomplete="email"
+              data-bind="value: email, valueUpdate: 'afterkeydown', event: { input: clearError }" />
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input class="auth-input" type="password" placeholder="••••••••" autocomplete="current-password"
+              data-bind="value: password, valueUpdate: 'afterkeydown', event: { input: clearError }" />
+          </div>
+          <div style="display: flex;justify-content: flex-end;padding-bottom: 10px;">
+            <a class="btn-link" onclick="router.go({path:'forget-password'})">forget password?</a>
+            </div>
+          <button class="btn-primary" type="submit" data-bind="disable: loading">
+            <span data-bind="visible: !loading()">Login</span>
+            <span data-bind="visible: loading">Logging in...</span>
+          </button>
+
+          <div class="auth-footer">
+            <span>Don’t have an account?</span>
+            <a class="btn-link" onclick="router.go({path:'register'})">Create account</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+</div>

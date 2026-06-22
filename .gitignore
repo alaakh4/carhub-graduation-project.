@@ -1,0 +1,57 @@
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.log
+
+# Node.js and Oracle JET generated files
+**/node_modules/
+**/jet_components/
+**/exchange_components/
+**/bower_components/
+**/dist/
+**/web/
+**/staged-themes/
+**/themes/
+**/jaftmp@/
+
+# Java and Gradle generated files
+**/.gradle/
+**/build/
+**/bin/
+*.class
+
+# Python generated files and virtual environments
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Android and Cordova generated files
+android/hybrid/node_modules/
+android/hybrid/platforms/
+android/hybrid/www/
+android/hybrid/plugins/*
+!android/hybrid/plugins/fetch.json
+*.apk
+*.aab
+
+# Runtime user uploads; keep the default client avatar
+CarHubFiles/uploads/*
+!CarHubFiles/uploads/clients/
+CarHubFiles/uploads/clients/*
+!CarHubFiles/uploads/clients/avatar.png
+
+# Temporary and backup files
+*.tmp
+*.temp
+*.bak
+*.swp
+~$*

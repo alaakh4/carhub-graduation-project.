@@ -1,0 +1,128 @@
+<div class="shopdash-page">
+  <div class="shopdash-panel">
+    <div class="panel-head">
+      <h3 data-bind="text: formTitle"></h3>
+      <div class="panel-tools">
+        <button class="shopdash-btn" type="button" data-bind="click: back">Back</button>
+        <button class="shopdash-btn" type="button" data-bind="click: save">Save</button>
+      </div>
+    </div>
+
+    <div class="shopdash-form">
+      <div class="grid">
+        <div class="field">
+          <label>Name *</label>
+          <input class="input" data-bind="value: name, valueUpdate: 'input'" placeholder="Part name">
+        </div>
+
+        <div class="field">
+          <label>Slug *</label>
+          <input class="input" data-bind="value: slug" placeholder="part-slug">
+        </div>
+
+        <div class="field">
+          <label>Price *</label>
+          <input class="input" type="number" step="0.01" data-bind="value: price" placeholder="0.00">
+        </div>
+
+        <div class="field">
+          <label>Quantity *</label>
+          <input class="input" type="number" step="1" data-bind="value: quantity" placeholder="0">
+        </div>
+
+        <div class="field">
+          <label>Brand</label>
+          <input class="input" data-bind="value: brand" placeholder="Brand">
+        </div>
+
+        <div class="field">
+          <label>Category</label>
+          <input class="input" data-bind="value: category" placeholder="Category">
+        </div>
+
+        <div class="field full">
+          <label>Tags</label>
+          <input class="input" data-bind="value: tags" placeholder="comma,separated,tags">
+        </div>
+
+        <div class="field full">
+          <label>Details</label>
+          <textarea class="input" rows="5" data-bind="value: details" placeholder="Describe the part..."></textarea>
+        </div>
+
+        <div class="field full">
+          <label>Active</label>
+          <select class="input" data-bind="value: is_active">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+
+        <!-- Images -->
+        <div class="field full">
+          <label>Images</label>
+          <input type="file" id="partImagesInput" multiple accept="image/*" />
+
+          <!-- Existing images -->
+          <div class="media-block" data-bind="if: existingImages().length">
+            <div class="media-block-title">Existing Images</div>
+            <div class="image-grid" data-bind="foreach: existingImages">
+              <div class="image-card">
+                <img class="image-thumb" data-bind="attr:{src: url, alt: name}">
+
+                <!-- ko if: $parent.defaultImageIndex() === index -->
+                <span class="image-badge">Default</span>
+                <!-- /ko -->
+
+                <div class="image-card-footer">
+                  <span class="image-name" data-bind="text: name"></span>
+
+                  <div class="image-card-actions">
+                    <button class="mini" type="button"
+                      data-bind="click: $parent.setDefaultImage, css:{ primary: $parent.defaultImageIndex() === index }">
+                      <span data-bind="text: $parent.defaultImageIndex() === index ? 'Default' : 'Set Default'"></span>
+                    </button>
+
+                    <button class="mini danger" type="button" data-bind="click: $parent.removeSelectedFile">
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- New selected images -->
+          <div class="media-block" data-bind="if: newImagePreviews().length">
+            <div class="media-block-title">New Images To Upload</div>
+            <div class="image-grid" data-bind="foreach: newImagePreviews">
+              <div class="image-card">
+                <img class="image-thumb" data-bind="attr:{src: url, alt: name}">
+
+                <!-- ko if: $parent.defaultImageIndex() === index -->
+                <span class="image-badge">Default</span>
+                <!-- /ko -->
+
+                <div class="image-card-footer">
+                  <span class="image-name" data-bind="text: name"></span>
+
+                  <div class="image-card-actions">
+                    <button class="mini" type="button"
+                      data-bind="click: $parent.setDefaultImage, css:{ primary: $parent.defaultImageIndex() === index }">
+                      <span data-bind="text: $parent.defaultImageIndex() === index ? 'Default' : 'Set Default'"></span>
+                    </button>
+
+                    <button class="mini danger" type="button" data-bind="click: $parent.removeSelectedFile">
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

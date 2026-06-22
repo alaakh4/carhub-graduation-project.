@@ -1,0 +1,62 @@
+<div class="shopdash-page">
+  <div class="shopdash-panel">
+    <div class="panel-head">
+      <h3>Help Requests</h3>
+      <div class="panel-tools">
+        <select class="input" data-bind="value: statusFilter">
+          <option value="">All</option>
+          <option value="0">Pending</option>
+          <option value="1">Accepted</option>
+          <option value="2">Rejected</option>
+          <option value="3">Completed</option>
+        </select>
+
+        <input class="input" placeholder="Search by id / name / phone"
+               data-bind="textInput: searchText" />
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th class="right">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody data-bind="foreach: filteredHelp">
+          <tr>
+            <td data-bind="text: '#' + id"></td>
+            <td data-bind="text: (fname || '') + ' ' + (lname || '')"></td>
+            <td data-bind="text: phone || '-'"></td>
+            <td data-bind="text: address || '-'"></td>
+            <td><span class="pill" data-bind="text: statusText, css: statusClass"></span></td>
+            <td data-bind="text: created_at"></td>
+            <td class="right">
+              <div class="actions">
+                <!-- Pending -->
+                <!-- ko if: Number(status) === 0 -->
+                <button class="mini primary" type="button" data-bind="click: $parent.acceptHelp">Accept</button>
+                <button class="mini danger" type="button" data-bind="click: $parent.rejectHelp">Reject</button>
+                <!-- /ko -->
+
+                <!-- Accepted -->
+                <!-- ko if: Number(status) === 1 -->
+                <button class="mini primary" type="button" data-bind="click: $parent.completeHelp">Complete</button>
+                <button class="mini danger" type="button" data-bind="click: $parent.rejectHelp">Reject</button>
+                <!-- /ko -->
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

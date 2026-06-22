@@ -1,0 +1,50 @@
+<div class="adminauth-app">
+  <section class="adminauth-main">
+    <div class="adminauth-container">
+      <div class="adminauth-card">
+        <div class="adminauth-brand">
+          <div class="adminauth-brand-icon">
+            <i class="fas fa-user-shield"></i>
+          </div>
+          <div>
+            <h1>Admin Login</h1>
+            <p>Sign in to manage CarHub platform</p>
+          </div>
+        </div>
+
+        <div class="adminauth-msg error" data-bind="visible: errorMsg">
+          <i class="fas fa-circle-exclamation"></i>
+          <span data-bind="text: errorMsg"></span>
+        </div>
+
+        <div class="adminauth-msg success" data-bind="visible: successMsg">
+          <i class="fas fa-circle-check"></i>
+          <span data-bind="text: successMsg"></span>
+        </div>
+
+        <form class="adminauth-form" data-bind="submit: login">
+          <div class="adminauth-group">
+            <label>Email</label>
+            <input class="adminauth-input"
+                   type="email"
+                   placeholder="admin@email.com"
+                   data-bind="value: email, valueUpdate: 'afterkeydown', event: { input: clearMessages }" />
+          </div>
+
+          <div class="adminauth-group">
+            <label>Password</label>
+            <input class="adminauth-input"
+                   type="password"
+                   placeholder="••••••••"
+                   data-bind="value: password, valueUpdate: 'afterkeydown', event: { input: clearMessages }" />
+          </div>
+
+          <button class="adminauth-btn" type="submit" data-bind="disable: loading">
+            <span data-bind="visible: !loading()">Login</span>
+            <span data-bind="visible: loading">Logging in...</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

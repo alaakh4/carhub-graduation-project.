@@ -1,0 +1,130 @@
+{
+    "API": "http://10.0.2.2:4567",
+    "pages": [
+        {
+            "path": "",
+            "redirect": "login"
+        },
+        {
+            "path": "login",
+            "detail": {
+                "label": "login",
+                "file": "login"
+            }
+        },
+        {
+            "path": "register",
+            "detail": {
+                "label": "register",
+                "file": "register"
+            }
+        },
+        {
+            "path": "forget-password",
+            "detail": {
+                "label": "forgotPassword",
+                "file": "forgotPassword"
+            }
+        },
+        {
+            "path": "reset-password",
+            "detail": {
+                "label": "resetPassword",
+                "file": "resetPassword"
+            }
+        },
+        {
+            "path": "home",
+            "detail": {
+                "label": "home",
+                "file": "home"
+            }
+        },
+        {
+            "path": "about",
+            "detail": {
+                "label": "about",
+                "file": "about"
+            }
+        },
+        {
+            "path": "contact",
+            "detail": {
+                "label": "contact",
+                "file": "contact"
+            }
+        },
+        {
+            "path": "parts",
+            "detail": {
+                "label": "parts",
+                "file": "parts"
+            }
+        },
+        {
+            "path": "workshops",
+            "detail": {
+                "label": "shops",
+                "file": "workshops"
+            }
+        },
+        {
+            "path": "partDetail/{id}",
+            "detail": {
+                "label": "partDetail",
+                "file": "partDetail",
+                "module": "partDetail"
+            }
+        },
+        {
+            "path": "workShopDetail/{id}",
+            "detail": {
+                "label": "workShopDetail",
+                "file": "workShopDetail",
+                "module": "workShopDetail"
+            }
+        },
+        {
+            "path": "fix-your-car",
+            "detail": {
+                "label": "fix-your-car",
+                "file": "fix-your-car"
+            }
+        },
+        {
+            "path": "request-service",
+            "detail": {
+                "label": "helpService",
+                "file": "helpService"
+            }
+        },
+        {
+            "path": "cart",
+            "detail": {
+                "label": "cart",
+                "file": "cart"
+            }
+        },
+        {
+            "path": "checkout",
+            "detail": {
+                "label": "checkout",
+                "file": "checkout"
+            }
+        },
+        {
+            "path": "orders",
+            "detail": {
+                "label": "orders",
+                "file": "orders"
+            }
+        },
+        {
+            "path": "profile",
+            "detail": {
+                "label": "profile",
+                "file": "profile"
+            }
+        }
+    ]
+}

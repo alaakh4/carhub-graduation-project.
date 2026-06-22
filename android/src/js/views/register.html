@@ -1,0 +1,108 @@
+<!-- AutoCare Hub - Register page (JET view) -->
+<div class="auth-app register-app">
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Create Account</h1>
+      <p>Create your client account to shop parts, book services, and track orders.</p>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <section class="auth-main">
+    <div class="container">
+      <div class="auth-card">
+
+        <div class="auth-chip">
+          <i class="fas fa-user-plus"></i>
+          <span>Client Registration</span>
+        </div>
+        <!-- Messages -->
+        <div class="auth-msg error" data-bind="visible: errorMsg">
+          <i class="fas fa-circle-exclamation"></i>
+          <span data-bind="text: errorMsg"></span>
+        </div>
+        <div class="auth-msg success" data-bind="visible: successMsg">
+          <i class="fas fa-check-circle"></i>
+          <span data-bind="text: successMsg"></span>
+        </div>
+
+        <!-- Form -->
+        <form class="auth-form" data-bind="submit: register">
+
+          <!-- Shared fields (required for both roles) -->
+          <div class="form-group">
+            <label>Email</label>
+            <input class="auth-input" type="email" placeholder="you@email.com" autocomplete="email"
+              data-bind="value: email, valueUpdate: 'afterkeydown'" />
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input class="auth-input" type="password" placeholder="••••••••" autocomplete="new-password"
+              data-bind="value: password, valueUpdate: 'afterkeydown'" />
+          </div>
+
+          <!-- Client fields -->
+          <div data-bind="visible: isClient">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input class="auth-input" type="text" placeholder="First name"
+                  data-bind="value: fname, valueUpdate: 'afterkeydown'" />
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input class="auth-input" type="text" placeholder="Last name"
+                  data-bind="value: lname, valueUpdate: 'afterkeydown'" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Phone</label>
+                <input class="auth-input" type="text" placeholder="01xxxxxxxxx"
+                  data-bind="value: phone, valueUpdate: 'afterkeydown'" />
+              </div>
+              <div >
+                <label>City</label>
+                <oj-select-single class="rounded" data="[[selectedCitiesDP]]" value="{{clientCity}}">
+                </oj-select-single>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Address</label>
+              <input class="auth-input" type="text" placeholder="Street, area..."
+                data-bind="value: clientAddress, valueUpdate: 'afterkeydown'" />
+            </div>
+
+            <div class="form-group">
+              <label>Avatar (upload optional)</label>
+              <input class="auth-input" type="file" accept="image/*"
+                data-bind="event: { change: onClientAvatarChange }" />
+              <img class="auth-preview" alt="avatar preview"
+                data-bind="visible: clientAvatarPreview, attr: { src: clientAvatarPreview }" />
+            </div>
+
+          </div>
+
+          <button class="btn-primary" type="submit" data-bind="disable: loading">
+            <span data-bind="visible: !loading()">Create account</span>
+            <span data-bind="visible: loading">Creating...</span>
+          </button>
+
+          <div class="auth-footer">
+            <span>Already have an account?</span>
+            <a class="btn-link" onclick="router.go({path:'login'})">Login</a>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+</div>

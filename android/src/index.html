@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>CARHUB Mobile</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1">
+  <base href="./">
+  <link rel="icon" href="css/images/favicon.ico" type="image/x-icon" />
+
+  <!-- injector:theme -->
+  <!-- endinjector -->
+
+  <link rel="stylesheet" id="uxiconFont"
+    href="https://static.oracle.com/cdn/fnd/gallery/2304.0.0/images/iconfont/ojuxIconFont.min.css">
+  <link rel="stylesheet" href="css/app.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="oj-web-applayout-body ac-app android-app">
+  <div id="globalBody">
+    <div class="android-route-markers" aria-hidden="true">
+      <button id="login" type="button" data-bind="click: function () { goTo('login'); }"></button>
+      <button id="register" type="button" data-bind="click: function () { goTo('register'); }"></button>
+      <button id="about" type="button" data-bind="click: function () { goTo('about'); }"></button>
+      <button id="contact" type="button" data-bind="click: function () { goTo('contact'); }"></button>
+    </div>
+
+    <div class="android-shell">
+      <header class="android-header" data-bind="visible: showChrome">
+        <div class="android-header__top">
+          <button class="android-brand" type="button" data-bind="click: function () { goTo('home'); }">
+            <span class="android-brand__icon"><i class="fas fa-car-side"></i></span>
+            <span class="android-brand__text">
+              <strong>CarHub</strong>
+              <span>Mobile</span>
+            </span>
+          </button>
+
+          <div class="android-header__actions">
+            <button id="cart" class="android-cart-button" type="button" aria-label="Open cart" data-bind="click: openCart">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="android-cart-badge" id="NOItems" data-bind="visible: cartCount() > 0, text: cartCount"></span>
+            </button>
+
+            <div class="android-user" id="userLoggedIn" data-bind="style: { display: isAuthenticated() ? 'block' : 'none' }">
+              <button class="android-user__button" id="mobileUserMenuButton" type="button" aria-label="Open user menu"
+                data-bind="click: toggleUserMenu">
+                <img class="android-user__avatar" data-bind="visible: avatarSrc, attr: { src: avatarSrc, alt: userName }">
+                <span class="android-user__initials" data-bind="visible: !avatarSrc(), text: userInitials"></span>
+              </button>
+
+              <div class="android-user__menu" id="mobileUserMenu" data-bind="css: { 'is-open': userMenuOpen }">
+                <div class="android-user__summary">
+                  <strong data-bind="text: userName"></strong>
+                  <span data-bind="text: userEmail"></span>
+                </div>
+                <button class="android-user__menu-item" type="button"
+                  data-bind="click: function () { goTo('profile'); }">
+                  <i class="fas fa-user"></i>
+                  <span>Profile</span>
+                </button>
+                <button class="android-user__menu-item" type="button"
+                  data-bind="click: function () { goTo('orders'); }">
+                  <i class="fas fa-bag-shopping"></i>
+                  <span>Orders</span>
+                </button>
+                <button class="android-user__menu-item" type="button"
+                  data-bind="click: function () { goTo('fix-your-car'); }">
+                  <i class="fas fa-wand-magic-sparkles"></i>
+                  <span>Fix Your Car</span>
+                </button>
+                <button class="android-user__menu-item logout" type="button" data-bind="click: logout">
+                  <i class="fas fa-sign-out-alt"></i>
+                  <span>Logout</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="userGuest" class="android-hidden-placeholder"
+              data-bind="style: { display: isAuthenticated() ? 'none' : 'block' }"></div>
+            <div id="shop-dashboard" class="android-hidden-placeholder"></div>
+            <div id="admin-dashboard" class="android-hidden-placeholder"></div>
+          </div>
+        </div>
+
+        <div class="android-header__content">
+          <span class="android-header__eyebrow">Client App</span>
+          <h1 data-bind="text: pageTitle"></h1>
+          <p data-bind="text: pageSubtitle"></p>
+        </div>
+      </header>
+
+      <main class="android-content">
+        <section class="android-auth-intro" data-bind="visible: !showChrome()">
+          <div class="android-auth-intro__badge">
+            <i class="fas fa-car-side"></i>
+            <span>CarHub Mobile</span>
+          </div>
+          <h1>Client App</h1>
+          <p>Sign in first, then browse workshops, parts, orders, and AI car support from one mobile flow.</p>
+        </section>
+
+        <oj-module role="main" class="android-module" config="[[moduleAdapter.koObservableConfig]]">
+        </oj-module>
+      </main>
+
+      <nav class="android-bottom-nav" data-bind="visible: showChrome">
+        <button id="home" class="android-bottom-nav__item" type="button"
+          data-bind="click: function () { goTo('home'); }, css: { active: isCurrentRoute('home') }">
+          <i class="fas fa-house"></i>
+          <span>Home</span>
+        </button>
+        <button id="workshops" class="android-bottom-nav__item" type="button"
+          data-bind="click: function () { goTo('workshops'); }, css: { active: isCurrentRoute('workshops') }">
+          <i class="fas fa-wrench"></i>
+          <span>Workshops</span>
+        </button>
+        <button id="parts" class="android-bottom-nav__item" type="button"
+          data-bind="click: function () { goTo('parts'); }, css: { active: isCurrentRoute('parts') }">
+          <i class="fas fa-box-open"></i>
+          <span>Parts</span>
+        </button>
+        <button id="fix-your-car" class="android-bottom-nav__item android-bottom-nav__item--accent" type="button"
+          data-bind="click: function () { goTo('fix-your-car'); }, css: { active: isCurrentRoute('fix-your-car') }">
+          <i class="fas fa-wand-magic-sparkles"></i>
+          <span>Fix</span>
+        </button>
+        <button id="orders" class="android-bottom-nav__item" type="button"
+          data-bind="click: function () { goTo('orders'); }, css: { active: isCurrentRoute('orders') }">
+          <i class="fas fa-bag-shopping"></i>
+          <span>Orders</span>
+        </button>
+        <button id="profile" class="android-bottom-nav__item" type="button"
+          data-bind="click: function () { goTo('profile'); }, css: { active: isCurrentRoute('profile') }">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- injector:scripts -->
+  <!-- endinjector -->
+</body>
+</html>

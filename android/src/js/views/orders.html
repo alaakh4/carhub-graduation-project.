@@ -1,0 +1,47 @@
+<div class="orders-app">
+  <section class="page-header">
+    <div class="container">
+      <h1>My Orders</h1>
+      <p>Current orders</p>
+    </div>
+  </section>
+
+  <main class="orders-main">
+    <div class="container">
+      <div class="orders-list">
+        <oj-bind-for-each data="[[orders]]">
+          <template data-oj-as="o">
+            <div class="order-wide-card" data-bind="click: function(){ openOrder(o.data.order_group_id); }">
+              <div class="order-thumb">
+                <img data-bind="attr:{src: o.data.previewImageSrc}" alt="Order" />
+              </div>
+
+              <div class="order-mid">
+                <div class="order-title-row">
+                  <div class="order-no" data-bind="text: o.data.order_no"></div>
+                  <div class="order-date" data-bind="text: o.data.created_at"></div>
+                </div>
+
+                <div class="order-preview" data-bind="text: o.data.preview_items"></div>
+
+                <div class="order-meta">
+                  <span data-bind="text: o.data.items_count + ' items'"></span>
+                  <span>•</span>
+                  <span data-bind="text: 'Qty ' + o.data.total_quantity"></span>
+                </div>
+              </div>
+
+              <div class="order-right">
+                <span class="status-pill" data-bind="text: o.data.status_text, css: o.data.statusClass"></span>
+                <div class="order-total">
+                  <span data-bind="text: o.data.total_price"></span> EGP
+                </div>
+                
+              </div>
+            </div>
+          </template>
+        </oj-bind-for-each>
+      </div>
+    </div>
+  </main>
+</div>

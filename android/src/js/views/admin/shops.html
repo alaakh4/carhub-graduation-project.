@@ -1,0 +1,72 @@
+<div class="admindash-page">
+  <div class="admindash-panel">
+    <div class="admindash-panel-head">
+      <h3>Shops Management</h3>
+
+      <div class="admindash-tools">
+        <select class="admindash-input" data-bind="value: statusFilter">
+          <option value="">All</option>
+          <option value="0">Pending</option>
+          <option value="1">Active</option>
+          <option value="2">Deactivated</option>
+        </select>
+
+        <input class="admindash-input"
+               type="text"
+               placeholder="Search by id / name / email"
+               data-bind="textInput: searchText" />
+      </div>
+    </div>
+
+    <div class="admindash-table-wrap">
+      <table class="admindash-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Shop Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th class="right">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody data-bind="foreach: filteredShops">
+          <tr>
+            <td data-bind="text: '#' + id"></td>
+            <td data-bind="text: name || '-'"></td>
+            <td data-bind="text: email || '-'"></td>
+            <td data-bind="text: phone || '-'"></td>
+            <td data-bind="text: address || '-'"></td>
+            <td>
+              <span class="admindash-pill" data-bind="text: statusText, css: statusClass"></span>
+            </td>
+            <td data-bind="text: created_at || '-'"></td>
+            <td class="right">
+              <div class="admindash-actions">
+                <!-- ko if: Number(is_active) === 0 -->
+                <button class="admindash-mini primary" type="button" data-bind="click: $parent.approveShop">Approve</button>
+                <button class="admindash-mini danger" type="button" data-bind="click: $parent.deactivateShop">Deactivate</button>
+                <!-- /ko -->
+
+                <!-- ko if: Number(is_active) === 1 -->
+                <button class="admindash-mini danger" type="button" data-bind="click: $parent.deactivateShop">Deactivate</button>
+                <!-- /ko -->
+
+                <!-- ko if: Number(is_active) === 2 -->
+                <button class="admindash-mini" type="button" disabled>Deactivated</button>
+                <!-- /ko -->
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="admindash-empty" data-bind="visible: !loading() && filteredShops().length === 0">
+      No shops found.
+    </div>
+  </div>
+</div>

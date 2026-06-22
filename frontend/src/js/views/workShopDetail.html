@@ -1,0 +1,317 @@
+<!-- Breadcrumb -->
+<div class="part-detail-app">
+  <!-- Main Content -->
+  <main class="product-main">
+    <div class="container">
+      <oj-dialog id="guestDialog" dialog-title="Login To Use Cart" aria-describedby="desc">
+        <div class="oj-dialog-body" slot="body">
+          <p>Please login first!</p>
+        </div>
+        <div slot="footer" class="oj-dialog-footer">
+          <oj-button on-oj-action="[[onGuestOk]]">OK</oj-button>
+        </div>
+      </oj-dialog>
+      <div class="product-layout">
+
+        <!-- Shop Image (ONE image only) -->
+        <div class="product-images">
+          <div class="main-image">
+            <img :src="[[selectedShop.photoUrl()]]" alt="Shop Photo" id="mainImage">
+          </div>
+        </div>
+
+        <!-- Shop Info -->
+        <div class="product-info">
+          <div class="product-header">
+            <div class="product-title-area">
+              <h1 class="product-title" data-bind="text: selectedShop.name"></h1>
+
+              <div class="shop-meta">
+                <span class="meta-chip">
+                  <span class="oj-ux-ico-store" aria-hidden="true"></span>
+                  <span data-bind="text: selectedShop.city"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rating -->
+          <div>
+            <div class="stars" style="font-size: 25px;">
+              <span class="stars-empty">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
+              </span>
+
+              <span class="stars-fill" data-bind="style:{ width: ratePercent(selectedShop.rate()) }">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
+              </span>
+            </div>
+            <span class="rating-text">
+              <strong data-bind="text: rateText(selectedShop.rate())"></strong> / 5
+            </span>
+          </div>
+
+          <!-- Address (re-using product-price block, same structure) -->
+          <div style="font-weight: bold;font-size: 20px;padding-top: 10px;">
+            <span data-bind="text: selectedShop.address"></span>
+          </div>
+
+          <!-- Status (re-using quantity block, same structure) -->
+          <div class="product-quantity">
+            <div class="qty-top">
+              <label>Status:</label>
+
+              <span class="stock-pill in-stock" data-bind="visible: selectedShop.isActive">
+                <span class="oj-ux-ico-check" aria-hidden="true"></span>
+                Active
+              </span>
+
+              <span class="stock-pill out-of-stock" data-bind="visible: !selectedShop.isActive()">
+                <span class="oj-ux-ico-error" aria-hidden="true"></span>
+                Inactive
+              </span>
+            </div>
+          </div>
+
+          <!-- Actions (keep structure; you can edit later) -->
+          <div class="product-actions">
+            <button class="btn-add-cart" type="button" data-bind="enable: selectedShop.isActive, click: requestService">
+              <span class="oj-ux-ico-mail" aria-hidden="true"></span>
+              Request Service
+            </button>
+
+            <button class="btn-buy-now" type="button" data-bind="click: scrollToShopParts">
+              <span class="oj-ux-ico-search" aria-hidden="true"></span>
+              View Shop Parts
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="product-tabs">
+        <div class="tab-buttons">
+          <button id="specifications-btn" class="tab-btn active" data-bind="click:openSpecification">
+            Shop Information
+          </button>
+          <button id="reviews-btn" class="tab-btn" data-bind="click:openReviews">
+            Reviews (<span data-bind="text: reviewsData().total"></span>)
+          </button>
+        </div>
+
+        <!-- Shop info tab -->
+        <div class="tab-content active" id="specifications-tab">
+          <h3>Shop Information</h3>
+          <table class="specs-table">
+            <tr>
+              <td>Shop Name</td>
+              <td data-bind="text:selectedShop.name"></td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td data-bind="text:selectedShop.description"></td>
+            </tr>
+            <tr>
+              <td>Services</td>
+              <td data-bind="text:selectedShop.services"></td>
+            </tr>
+            <tr>
+              <td>City</td>
+              <td data-bind="text:selectedShop.city"></td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td data-bind="text:selectedShop.address"></td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td data-bind="text:selectedShop.phone"></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td data-bind="text:selectedShop.email"></td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Reviews tab -->
+        <div class="tab-content" id="reviews-tab">
+          <div class="reviews-summary">
+            <div class="rating-overview">
+              <div class="rating-score" data-bind="text: rateText(selectedShop.rate())"></div>
+
+              <div class="stars" style="font-size: 25px;">
+                <span class="stars-empty">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+
+                <span class="stars-fill" data-bind="style:{ width: ratePercent(selectedShop.rate()) }">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+              </div>
+              <p>Based on <oj-bind-text value="[[selectedShop.rateCount]]"></oj-bind-text> reviews</p>
+            </div>
+            <div class="rating-breakdown">
+              <div class="rating-bar">
+                <span>5 ★</span>
+                <div class="bar">
+                  <div class="fill"
+                    data-bind="style:{ width: (reviewsData().percent && reviewsData().percent[5]) ? reviewsData().percent[5] : '0%' }">
+                  </div>
+                </div>
+                <span
+                  data-bind="text: (reviewsData().counts && reviewsData().counts[5]) ? reviewsData().counts[5] : '0'"></span>
+              </div>
+              <div class="rating-bar">
+                <span>4 ★</span>
+                <div class="bar">
+                  <div class="fill"
+                    data-bind="style:{ width: (reviewsData().percent && reviewsData().percent[4]) ? reviewsData().percent[4] : '0%' }">
+                  </div>
+                </div>
+                <span
+                  data-bind="text: (reviewsData().counts && reviewsData().counts[4]) ? reviewsData().counts[4] : '0'"></span>
+              </div>
+              <div class="rating-bar">
+                <span>3 ★</span>
+                <div class="bar">
+                  <div class="fill"
+                    data-bind="style:{ width: (reviewsData().percent && reviewsData().percent[3]) ? reviewsData().percent[3] : '0%' }">
+                  </div>
+                </div>
+                <span
+                  data-bind="text: (reviewsData().counts && reviewsData().counts[3]) ? reviewsData().counts[3] : '0'"></span>
+              </div>
+              <div class="rating-bar">
+                <span>2 ★</span>
+                <div class="bar">
+                  <div class="fill"
+                    data-bind="style:{ width: (reviewsData().percent && reviewsData().percent[2]) ? reviewsData().percent[2] : '0%' }">
+                  </div>
+                </div>
+                <span
+                  data-bind="text: (reviewsData().counts && reviewsData().counts[2]) ? reviewsData().counts[2] : '0'"></span>
+              </div>
+              <div class="rating-bar">
+                <span>1 ★</span>
+                <div class="bar">
+                  <div class="fill"
+                    data-bind="style:{ width: (reviewsData().percent && reviewsData().percent[1]) ? reviewsData().percent[1] : '0%' }">
+                  </div>
+                </div>
+                <span
+                  data-bind="text: (reviewsData().counts && reviewsData().counts[1]) ? reviewsData().counts[1] : '0'"></span>
+              </div>
+            </div>
+          </div>
+          <!-- Add Review (place AFTER .reviews-summary and BEFORE .reviews-list) -->
+          <div class="add-review">
+
+            <h3 class="add-review-title">Write a Review</h3>
+
+            <!-- show message if user not logged in -->
+            <p class="add-review-hint" data-bind="visible: !canReview()">
+              Please login as a client to add a review.
+            </p>
+
+            <!-- form -->
+            <div data-bind="visible: canReview">
+              <div class="add-review-stars">
+                <span class="star-pick"
+                  data-bind="css:{active: newReviewRating() >= 1}, click: function(){ newReviewRating(1); }">★</span>
+                <span class="star-pick"
+                  data-bind="css:{active: newReviewRating() >= 2}, click: function(){ newReviewRating(2); }">★</span>
+                <span class="star-pick"
+                  data-bind="css:{active: newReviewRating() >= 3}, click: function(){ newReviewRating(3); }">★</span>
+                <span class="star-pick"
+                  data-bind="css:{active: newReviewRating() >= 4}, click: function(){ newReviewRating(4); }">★</span>
+                <span class="star-pick"
+                  data-bind="css:{active: newReviewRating() >= 5}, click: function(){ newReviewRating(5); }">★</span>
+
+                <span class="add-review-value"
+                  data-bind="text: newReviewRating() ? (newReviewRating() + ' / 5') : 'Select rating'"></span>
+              </div>
+
+              <textarea class="add-review-text" placeholder="Write a comment (optional)..."
+                data-bind="value: newReviewComment, valueUpdate:'afterkeydown'"></textarea>
+
+              <div class="add-review-actions">
+                <button class="btn-load-more" type="button"
+                  data-bind="click: submitReview, enable: newReviewRating() > 0 && !isSubmittingReview()">
+                  <span data-bind="text: isSubmittingReview() ? 'Submitting...' : 'Submit Review'"></span>
+                </button>
+
+                <span class="add-review-error" data-bind="visible: reviewError, text: reviewError"></span>
+                <span class="add-review-success" data-bind="visible: reviewSuccess, text: reviewSuccess"></span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="reviews-list">
+            <oj-bind-for-each data="[[selectedReviews]]">
+              <template data-oj-as="review">
+                <div class="review-item">
+                  <div class="review-header">
+                    <div class="reviewer-info">
+                      <strong data-bind="text: review.data.fname + ' ' + review.data.lname"></strong>
+                    </div>
+                    <div class="review-rating">
+                      <span class="star filled"
+                        data-bind="css:{ 'review-rate-active': Number(review.data.rating) >= 1 }">★</span>
+                      <span class="star filled"
+                        data-bind="css:{ 'review-rate-active': Number(review.data.rating) >= 2 }">★</span>
+                      <span class="star filled"
+                        data-bind="css:{ 'review-rate-active': Number(review.data.rating) >= 3 }">★</span>
+                      <span class="star filled"
+                        data-bind="css:{ 'review-rate-active': Number(review.data.rating) >= 4 }">★</span>
+                      <span class="star filled"
+                        data-bind="css:{ 'review-rate-active': Number(review.data.rating) >= 5 }">★</span>
+                    </div>
+                  </div>
+
+                  <p class="review-date" data-bind="text: review.data.formatedDate"></p>
+
+                  <p class="review-text" data-bind="visible: review.data.safeComment, text: review.data.safeComment">
+                  </p>
+                  <p class="review-text muted" data-bind="visible: !review.data.safeComment">
+                    No comment provided.
+                  </p>
+                </div>
+              </template>
+            </oj-bind-for-each>
+          </div>
+
+          <button class="btn-load-more" data-bind="click: loadMoreReviews, visible: hasMoreReviews">
+            Load More Reviews
+          </button>
+        </div>
+      </div>
+
+      <section class="related-products" id="shop-parts-section">
+        <h2>Available Parts From This Shop</h2>
+
+        <div class="related-grid" data-bind="visible: hasShopParts, foreach: selectedShopParts">
+          <div class="related-card">
+            <img data-bind="attr: { src: displayImage, alt: name }, click: $parent.openPartDetail">
+            <h4 data-bind="text: name, click: $parent.openPartDetail"></h4>
+            <p class="related-meta" data-bind="text: displayMeta"></p>
+            <p class="related-price">$<span data-bind="text: displayPrice"></span></p>
+            <button class="btn-add-related" type="button"
+              data-bind="click: $parent.addRelatedPartToCart, enable: Number(quantity || 0) > 0, text: Number(quantity || 0) > 0 ? 'Add to Cart' : 'Out of Stock'">
+            </button>
+          </div>
+        </div>
+
+        <div class="related-empty" data-bind="visible: !hasShopParts()">
+          This workshop has not listed any active parts yet.
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>

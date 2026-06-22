@@ -1,0 +1,151 @@
+{
+    "API": "",
+    "pages": [
+        {
+            "path": "",
+            "redirect": "home"
+        },
+        {
+            "path": "home",
+            "detail": {
+                "label": "home",
+                "file": "home"
+            }
+        },
+        {
+            "path": "about",
+            "detail": {
+                "label": "about",
+                "file": "about"
+            }
+        },
+        {
+            "path": "contact",
+            "detail": {
+                "label": "contact",
+                "file": "contact"
+            }
+        },
+        {
+            "path": "parts",
+            "detail": {
+                "label": "parts",
+                "file": "parts"
+            }
+        },
+        {
+            "path": "workshops",
+            "detail": {
+                "label": "shops",
+                "file": "workshops"
+            }
+        },
+        {
+            "path": "profile",
+            "detail": {
+                "label": "profile",
+                "file": "profile"
+            }
+        },
+        {
+            "path": "login",
+            "detail": {
+                "label": "login",
+                "file": "login"
+            }
+        },
+        {
+            "path": "register",
+            "detail": {
+                "label": "register",
+                "file": "register"
+            }
+        },
+        {
+            "path": "forget-password",
+            "detail": {
+                "label": "forgotPassword",
+                "file": "forgotPassword"
+            }
+        },
+        {
+            "path": "reset-password",
+            "detail": {
+                "label": "resetPassword",
+                "file": "resetPassword"
+            }
+        },
+        {
+            "path": "cart",
+            "detail": {
+                "label": "cart",
+                "file": "cart"
+            }
+        },
+        {
+            "path": "partDetail/{id}",
+            "detail": {
+                "label": "partDetail",
+                "file": "partDetail",
+                "module": "partDetail"
+            }
+        },
+        {
+            "path": "workShopDetail/{id}",
+            "detail": {
+                "label": "workShopDetail",
+                "file": "workShopDetail",
+                "module": "workShopDetail"
+            }
+        },
+        {
+            "path": "checkout",
+            "detail": {
+                "label": "checkout",
+                "file": "checkout"
+            }
+        },
+        {
+            "path": "orders",
+            "detail": {
+                "label": "orders",
+                "file": "orders"
+            }
+        },
+        {
+            "path": "request-service",
+            "detail": {
+                "label": "helpService",
+                "file": "helpService"
+            }
+        },
+        {
+            "path": "shop-dashboard",
+            "detail": {
+                "label": "dashboard-shop",
+                "file": "dashboard/shopDashboard"
+            }
+        },
+        {
+            "path": "admin-dashboard",
+            "detail": {
+                "label": "dashboard-admin",
+                "file": "admin/adminDashboard"
+            }
+        },
+                {
+            "path": "admin-login",
+            "detail": {
+                "label": "login-admin",
+                "file": "admin/login"
+            }
+        },
+               {
+            "path": "fix-your-car",
+            "detail": {
+                "label": "fix-your-car",
+                "file": "fix-your-car"
+            }
+        }
+    ]
+}

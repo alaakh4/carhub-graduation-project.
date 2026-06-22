@@ -1,0 +1,28 @@
+/* Put this in css/app.css (or your custom css file) */
+.ac-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+.ac-logo{
+  width:150px;
+  height:auto;
+}
+.ac-user{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.ac-avatar{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* super simple dark mode (optional) */
+.ac-dark{
+  background:#000;
+  color:#fff;
+}

@@ -1,0 +1,145 @@
+<div class="shops-app">
+    <section class="page-header">
+        <div class="container">
+            <h1>Find Your Perfect Workshop</h1>
+            <p>Browse through 500+ trusted auto repair shops and service centers</p>
+        </div>
+    </section>
+
+    <main class="workshops-main">
+        <div class="container">
+            <div class="workshops-layout">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filter-header">
+                        <h3>Filters</h3>
+                        <button class="clear-filters" data-bind="click: clearAll">Clear All</button>
+                    </div>
+                    <!-- Services Filter -->
+                    <div class="filter-group">
+                        <h4>Services</h4>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="engine_service" data-bind="checked: selectedServices">
+                            <span>Engine Service</span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="electrical_battery_service"
+                                data-bind="checked: selectedServices">
+                            <span>Electrical &amp; Battery Service</span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="brake_service" data-bind="checked: selectedServices">
+                            <span>Brake Service</span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="tire_wheel_service" data-bind="checked: selectedServices">
+                            <span>Tire &amp; Wheel Service</span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="ac_service" data-bind="checked: selectedServices">
+                            <span>Air Conditioning Service</span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="body_work_service" data-bind="checked: selectedServices">
+                            <span>Body Work Service</span>
+                        </label>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-group">
+                        <h4>Minimum Rating</h4>
+                        <label class="checkbox-label">
+                            <input type="radio" name="rating" value="" data-bind="checked: selectedRate">
+                            <span>⭐ All Rates</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="rating" value="4" data-bind="checked: selectedRate">
+                            <span>⭐ 4.0 & above</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="rating" value="3" data-bind="checked: selectedRate">
+                            <span>⭐ 3.0 & above</span>
+                        </label>
+                    </div>
+                </aside>
+
+                <!-- Workshops Grid -->
+                <div class="workshops-content">
+                    <div class="content-header">
+                        <p class="results-count">Showing <strong data-bind="text: NOShops"></strong> workshops</p>
+                        <select class="sort-select" data-bind="value:sortBy">
+                            <option value="top">Highest Rated</option>
+                            <option value="new">Newest</option>
+                            <option value="reviews">Most Reviews</option>
+                        </select>
+                    </div>
+
+                    <div class="workshops-grid">
+                        <!-- Workshop Card 1 -->
+                        <oj-bind-for-each data="[[selectedShops]]">
+                            <template data-oj-as="shop">
+                                <div class="workshop-card">
+                                    <div class="workshop-image">
+                                        <img data-bind="attr:{src: shop.data.photo_url}">
+                                    </div>
+                                    <div class="workshop-info">
+                                        <div class="workshop-header">
+                                            <h3 data-bind="text:$current.data.name"></h3>
+                                        </div>
+                                        <div class=" workshop-rating">
+                                            <div class="stars">
+                                                <span class="stars-empty">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                        class="fas fa-star"></i>
+                                                </span>
+
+                                                <span class="stars-fill"
+                                                    data-bind="style:{ width: ratePercent(shop.data.rate) }">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                        class="fas fa-star"></i>
+                                                </span>
+                                            </div>
+                                            <span class="rating-text">(<oj-bind-text
+                                                    value="[[shop.data.rate_count]]"></oj-bind-text>)
+                                                reviews</span>
+                                        </div>
+                                        <p class="location">📍 <oj-bind-text
+                                                value="[[shop.data.address]]"></oj-bind-text></p>
+                                        <div class="services-tags"
+                                            data-bind="foreach:$current.data.services.split(',').slice(0,6)">
+                                            <span class="tag" data-bind="text:$data"></span>
+                                        </div>
+                                        <div class="workshop-footer">
+                                            <a data-bind="click: openViewDetail" :id="[['viewDtail-' + shop.data.id]]"
+                                                class="btn-view">View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </oj-bind-for-each>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <oj-button class="oj-button-sm" on-oj-action="[[previousPage]]"
+                            disabled="[[previousBtnDisabled]]">Previous</oj-button>
+                        <button class="page-btn active" data-bind="text:currentPage"></button>
+                        <oj-button class="oj-button-sm" on-oj-action="[[nextPage]]"
+                            disabled="[[nextBtnDisabled]]">Next</oj-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast (used by workshops.js) -->
+    <div class="toast" id="toast" aria-live="polite"></div>
+</div>

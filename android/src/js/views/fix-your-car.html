@@ -1,0 +1,197 @@
+<div class="fix-car-app">
+  <section class="page-header">
+    <div class="container">
+      <h1>Fix Your Car</h1>
+      <p>Describe the symptom, get an AI service prediction, and find workshops that match that repair need</p>
+    </div>
+  </section>
+
+  <main class="fix-car-main">
+    <div class="container">
+      <div class="fix-car-card">
+        <div class="fix-car-card-header">
+          <h2>Smart Car Diagnosis</h2>
+          <p>Write the complaint in your own words. We will predict the likely service category and recommend matching workshops.</p>
+        </div>
+
+        <div class="fix-car-steps">
+          <div class="fix-car-step">
+            <span class="fix-car-step-number">1</span>
+            <div>
+              <strong>Describe the problem</strong>
+              <p>Include the sound, warning light, smell, or driving symptom.</p>
+            </div>
+          </div>
+          <div class="fix-car-step">
+            <span class="fix-car-step-number">2</span>
+            <div>
+              <strong>Get the AI category</strong>
+              <p>The classifier predicts the service area that best matches your complaint.</p>
+            </div>
+          </div>
+          <div class="fix-car-step">
+            <span class="fix-car-step-number">3</span>
+            <div>
+              <strong>Choose a workshop</strong>
+              <p>We filter workshops by their listed services so the recommendations stay relevant.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fix-car-form">
+          <div class="form-group">
+            <label for="problemText">Problem Description</label>
+            <textarea id="problemText"
+                      class="form-textarea"
+                      data-bind="value: complaintText, valueUpdate: 'afterkeydown'"
+                      placeholder="Example: The car will not start in the morning, the battery light is on, and the headlights are weak."></textarea>
+          </div>
+
+          <oj-bind-if test="[[errorMessage()]]">
+            <div class="form-message error">
+              <i class="fas fa-circle-exclamation"></i>
+              <span data-bind="text: errorMessage"></span>
+            </div>
+          </oj-bind-if>
+
+          <div class="fix-car-actions">
+            <button type="button"
+                    class="submit-btn"
+                    data-bind="click: analyzeProblem, disable: aiLoading">
+              <i class="fas fa-magnifying-glass"></i>
+              <span data-bind="text: aiLoading() ? 'Analyzing...' : 'Analyze Problem'"></span>
+            </button>
+
+            <button type="button"
+                    class="secondary-btn"
+                    data-bind="click: browseAllWorkshops">
+              <i class="fas fa-shop"></i>
+              Browse Workshops
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="fix-car-card ai-result-card" data-bind="visible: hasPrediction">
+        <div class="fix-car-card-header">
+          <h2>Prediction Result</h2>
+          <p data-bind="text: resultDescription"></p>
+        </div>
+
+        <div class="fix-car-result-body">
+          <div class="fix-car-result-badge">
+            <i class="fas fa-wand-magic-sparkles"></i>
+            <span data-bind="text: predictedLabel"></span>
+          </div>
+
+          <div class="fix-car-result-subtitle">
+            Model class:
+            <strong data-bind="text: predictedClass"></strong>
+          </div>
+
+          <div class="fix-car-confidence" data-bind="visible: topConfidenceText">
+            Top confidence:
+            <strong data-bind="text: topConfidenceText"></strong>
+          </div>
+
+          <div class="fix-car-keywords" data-bind="foreach: predictedKeywords">
+            <span class="fix-car-chip" data-bind="text: $data"></span>
+          </div>
+
+          <div class="fix-car-note">
+            This result is an AI suggestion and should be confirmed by the workshop.
+          </div>
+
+          <div class="fix-car-score-list" data-bind="foreach: confidenceEntries">
+            <div class="fix-car-score-item" data-bind="css: { winner: isWinner }">
+              <div class="fix-car-score-header">
+                <span data-bind="text: label"></span>
+                <strong data-bind="text: percentText"></strong>
+              </div>
+              <div class="fix-car-score-track">
+                <div class="fix-car-score-fill" data-bind="style: { width: barWidth }"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fix-car-card" data-bind="visible: recommendedShops().length > 0">
+        <div class="fix-car-card-header">
+          <h2>Recommended Shops</h2>
+          <p>These workshops list services that match the predicted category.</p>
+        </div>
+
+        <div class="fix-car-shops-list" data-bind="foreach: recommendedShops">
+          <div class="fix-car-shop-item">
+            <div class="fix-car-shop-media">
+              <img data-bind="attr: { src: displayPhotoUrl, alt: name }">
+            </div>
+
+            <div class="fix-car-shop-info">
+              <div class="fix-car-shop-top">
+                <h3 data-bind="text: name"></h3>
+
+                <div class="workshop-rating">
+                  <div class="stars">
+                    <span class="stars-empty">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </span>
+
+                    <span class="stars-fill" data-bind="style:{ width: $parent.ratePercent(rate) }">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </span>
+                  </div>
+                  <span class="rating-text">
+                    <span data-bind="text: displayRating"></span>
+                    (<span data-bind="text: rate_count || 0"></span> reviews)
+                  </span>
+                </div>
+              </div>
+
+              <p class="fix-car-shop-address">
+                <i class="fas fa-location-dot"></i>
+                <span data-bind="text: address || 'Address not available'"></span>
+              </p>
+
+              <p class="fix-car-shop-phone">
+                <i class="fas fa-phone"></i>
+                <span data-bind="text: phone || 'Phone not available'"></span>
+              </p>
+
+              <div class="fix-car-service-tags" data-bind="foreach: serviceTags">
+                <span class="fix-car-service-tag" data-bind="text: $data"></span>
+              </div>
+
+              <div class="fix-car-match-tags" data-bind="visible: matchedKeywords && matchedKeywords.length, foreach: matchedKeywords">
+                <span class="fix-car-match-tag" data-bind="text: $data"></span>
+              </div>
+
+              <div class="fix-car-shop-actions">
+                <button type="button"
+                        class="secondary-btn"
+                        data-bind="click: $parent.viewShopProfile">
+                  View Profile
+                </button>
+
+                <button type="button"
+                        class="submit-btn small"
+                        data-bind="click: $parent.requestServiceFromShop">
+                  Request Service
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fix-car-empty" data-bind="visible: hasAnalyzed() && recommendedShops().length === 0 && !errorMessage()">
+        <h3>No compatible workshops found yet</h3>
+        <p>Try adding more detail to the complaint, or browse all workshops and choose one manually.</p>
+        <button type="button" class="secondary-btn" data-bind="click: browseAllWorkshops">
+          Browse All Workshops
+        </button>
+      </div>
+    </div>
+  </main>
+</div>

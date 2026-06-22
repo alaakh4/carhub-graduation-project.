@@ -1,0 +1,59 @@
+<div class="shopdash-app" style="padding: 10px 5px 10px 5px;">
+  <div class="shopdash-layout">
+    <aside class="shopdash-sidebar">
+      <div class="shopdash-brand">
+        <div class="shopdash-logo">CH</div>
+        <div>
+          <div class="shopdash-title">Shop Dashboard</div>
+          <div class="shopdash-sub">Manage orders & parts</div>
+        </div>
+      </div>
+
+      <nav class="shopdash-nav">
+        <button class="shopdash-link"
+          data-bind="click: function(){ go('overview'); }, css:{active: activePage() === 'overview'}">
+          <i class="fas fa-chart-pie"></i><span>Overview</span>
+        </button>
+
+        <button class="shopdash-link"
+          data-bind="click: function(){ go('orders'); }, css:{active: activePage() === 'orders'}">
+          <i class="fas fa-clipboard-list"></i><span>Orders</span>
+        </button>
+
+        <button class="shopdash-link"
+          data-bind="click: function(){ go('help'); }, css:{active: activePage() === 'help'}">
+          <i class="fas fa-life-ring"></i><span>Help Requests</span>
+        </button>
+
+        <button class="shopdash-link"
+          data-bind="click: function(){ go('parts'); }, css:{active: activePage() === 'parts'}">
+          <i class="fas fa-cubes"></i><span>Parts</span>
+        </button>
+
+        <button class="shopdash-link"
+          data-bind="click: function(){ go('profile'); }, css:{active: activePage() === 'profile'}">
+          <i class="fas fa-user-circle"></i><span>Profile</span>
+        </button>
+      </nav>
+
+      <div class="shopdash-sidebar-footer">
+        <button class="shopdash-link shopdash-link-danger" type="button" data-bind="click: logout">
+          <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <section class="shopdash-main">
+      <div class="shopdash-topbar">
+        <div class="shopdash-top-title" data-bind="text: pageTitle"></div>
+        <div class="shopdash-actions">
+          <button class="shopdash-btn" type="button" data-bind="click: refreshActive">Refresh</button>
+        </div>
+      </div>
+
+      <oj-bind-if test="[[innerModuleConfig()]]">
+        <oj-module config="[[innerModuleConfig]]"></oj-module>
+      </oj-bind-if>
+    </section>
+  </div>
+</div>

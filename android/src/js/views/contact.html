@@ -1,0 +1,122 @@
+<div class="contact-app">
+  <section class="page-header">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>We are here to help with questions, support, and feedback</p>
+    </div>
+  </section>
+
+  <main class="contact-main">
+    <div class="container">
+      <div class="contact-layout">
+        <section class="contact-info-card">
+          <span class="contact-kicker">Get In Touch</span>
+          <h2>Let’s talk about your needs</h2>
+          <p class="contact-intro">
+            Whether you need support, want to ask about a workshop, or have feedback about the platform,
+            we would love to hear from you.
+          </p>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h3>Address</h3>
+                <p>Cairo, Egypt</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <h3>Phone</h3>
+                <p>+20 100 000 0000</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h3>Email</h3>
+                <p>support@carhub.com</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h3>Working Hours</h3>
+                <p>Sunday - Thursday: 9:00 AM - 6:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-note">
+            <i class="fas fa-info-circle"></i>
+            <span>Response time is usually within 24 hours.</span>
+          </div>
+        </section>
+
+        <section class="contact-form-card">
+          <span class="contact-kicker">Send Message</span>
+          <h2>We’d love to hear from you</h2>
+
+          <form class="contact-form" data-bind="submit: submitContactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Full Name</label>
+                <input id="contactName" type="text" class="contact-input"
+                  data-bind="value: form.name" placeholder="Enter your full name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contactEmail">Email Address</label>
+                <input id="contactEmail" type="email" class="contact-input"
+                  data-bind="value: form.email" placeholder="Enter your email" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+              <input id="contactSubject" type="text" class="contact-input"
+                data-bind="value: form.subject" placeholder="What is this about?" required />
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" class="contact-textarea"
+                data-bind="value: form.message" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <oj-bind-if test="[[messageError()]]">
+              <div class="contact-msg error">
+                <i class="fas fa-circle-exclamation"></i>
+                <span data-bind="text: messageError"></span>
+              </div>
+            </oj-bind-if>
+
+            <oj-bind-if test="[[messageSuccess()]]">
+              <div class="contact-msg success">
+                <i class="fas fa-circle-check"></i>
+                <span data-bind="text: messageSuccess"></span>
+              </div>
+            </oj-bind-if>
+
+            <button class="contact-submit-btn" type="submit" data-bind="disable: isSubmitting">
+              <i class="fas fa-paper-plane"></i>
+              <span data-bind="text: isSubmitting() ? 'Sending...' : 'Send Message'"></span>
+            </button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>

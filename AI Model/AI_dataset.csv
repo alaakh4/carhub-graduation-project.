@@ -1,0 +1,601 @@
+text,label
+engine overheats after driving for 15 minutes,engine_service
+car loses power while going uphill,engine_service
+oil is leaking from under the engine,engine_service
+engine makes knocking sound when accelerating,engine_service
+white smoke comes from the exhaust after startup,engine_service
+car shakes while the engine is idling,engine_service
+engine temperature becomes high in traffic,engine_service
+check engine light is on and the car feels weak,engine_service
+engine stalls when I stop at a red light,engine_service
+rough engine sound happens in the morning,engine_service
+car jerks when I press the gas pedal,engine_service
+engine misfires during acceleration,engine_service
+burning smell comes from the engine area,engine_service
+coolant level keeps dropping every week,engine_service
+engine response is very slow when overtaking,engine_service
+black smoke appears when I speed up,engine_service
+engine vibrates badly when the car is parked,engine_service
+the motor feels weak on long drives,engine_service
+temperature gauge rises quickly after starting,engine_service
+there is rattling noise from the engine bay,engine_service
+car suddenly stops while idling,engine_service
+the engine sounds louder than normal lately,engine_service
+oil smell comes from the front of the car,engine_service
+the vehicle struggles to accelerate on the highway,engine_service
+there is steam near the hood after driving,engine_service
+engine feels unstable at low speed,engine_service
+car sputters when I try to move fast,engine_service
+overheating happens especially in traffic jams,engine_service
+the engine warning light blinks while driving,engine_service
+engine loses power after 20 minutes of driving,engine_service
+the motor shakes after cold start,engine_service
+exhaust smoke increases when I press the accelerator,engine_service
+car feels underpowered when carrying passengers,engine_service
+engine cuts out when slowing down,engine_service
+the car gets hot and smells burnt,engine_service
+rough idle starts right after turning on the car,engine_service
+the engine has tapping noise from the front side,engine_service
+power drops suddenly while driving uphill,engine_service
+car vibrates before moving forward,engine_service
+the engine gets hot even on short trips,engine_service
+there is knocking noise whenever I speed up,engine_service
+coolant seems to leak and the engine heats up,engine_service
+engine hesitates when I step on the gas,engine_service
+the motor sounds rough while waiting at signals,engine_service
+car stalls when I leave it idling too long,engine_service
+heat and smoke come from the engine compartment,engine_service
+vehicle jerks and feels rough during acceleration,engine_service
+engine runs unevenly after startup,engine_service
+the car becomes noisy from the engine side,engine_service
+temperature rises fast when the AC is on,engine_service
+there is oil dripping under the front area,engine_service
+engine struggles to maintain power on highways,engine_service
+the motor shakes and makes clicking sounds,engine_service
+the car feels weak and slow to respond,engine_service
+engine overheating happens after climbing hills,engine_service
+car stops suddenly when parked with engine on,engine_service
+the engine feels rough and unstable in the morning,engine_service
+power loss and engine noise happen together,engine_service
+the hood area becomes very hot after a short drive,engine_service
+the engine misfires and vibrates under load,engine_service
+the engine revs up but the car barely moves forward,engine_service
+my car feels very weak when climbing bridges,engine_service
+there is a heavy fuel smell coming from the engine bay,engine_service
+the engine keeps shaking after I fill fuel,engine_service
+the motor almost dies when I turn the steering at idle,engine_service
+the car has poor pickup and slow acceleration all day,engine_service
+I hear a deep knocking sound from the engine on cold mornings,engine_service
+the engine becomes noisy after driving for a long time,engine_service
+the vehicle struggles badly when I try to overtake,engine_service
+there is smoke from the hood after stopping the car,engine_service
+the engine feels rough whenever I start it after parking overnight,engine_service
+my car loses power with no warning during driving,engine_service
+the engine sound becomes harsh when the speed increases,engine_service
+the vehicle jerks several times before accelerating properly,engine_service
+the motor temperature rises fast when the car is not moving,engine_service
+there is a strong hot smell from under the hood,engine_service
+the engine idles unevenly with the AC turned off,engine_service
+the car feels like it will shut off when waiting in traffic,engine_service
+I can hear popping sounds from the engine area,engine_service
+the engine struggles more when the car is fully loaded,engine_service
+my car responds late when I press the accelerator,engine_service
+the vehicle becomes very hot after a short highway trip,engine_service
+engine performance drops after a few minutes of driving,engine_service
+the motor sounds rough and heavy at low speed,engine_service
+the car vibrates strongly when standing with the engine on,engine_service
+there is repeated misfiring when I try to speed up quickly,engine_service
+the temperature needle reaches high levels too often,engine_service
+the engine loses strength when going uphill with passengers,engine_service
+the car feels like it is choking during acceleration,engine_service
+there is steam and a burnt odor near the front hood area,engine_service
+the engine rpm feels unstable while parked,engine_service
+the motor makes unusual ticking sounds after startup,engine_service
+the vehicle becomes sluggish after driving in hot weather,engine_service
+the engine almost stalls when I slow down near intersections,engine_service
+there is a loud humming and roughness from the engine side,engine_service
+my car cannot gain speed smoothly anymore,engine_service
+the engine heat becomes worse when I drive in the city,engine_service
+the vehicle hesitates badly before moving from a stop,engine_service
+the motor sounds strained even on normal roads,engine_service
+the engine feels weak and overheated at the same time,engine_service
+car does not start and the battery seems dead,electrical_battery_service
+battery keeps draining overnight,electrical_battery_service
+dashboard lights flicker while driving,electrical_battery_service
+headlights become dim when the car is idle,electrical_battery_service
+power windows stopped working suddenly,electrical_battery_service
+horn is not working at all,electrical_battery_service
+battery warning light is on,electrical_battery_service
+car only clicks when I try to start it,electrical_battery_service
+phone charger socket is not working,electrical_battery_service
+central lock does not respond,electrical_battery_service
+interior lights keep turning off and on,electrical_battery_service
+screen and dashboard electronics restart randomly,electrical_battery_service
+wipers are moving very slowly,electrical_battery_service
+car needs a jump start every morning,electrical_battery_service
+rear lights stopped working suddenly,electrical_battery_service
+the car battery dies after parking overnight,electrical_battery_service
+ignition makes a clicking sound but the engine will not start,electrical_battery_service
+front lights become weak at night,electrical_battery_service
+the windows and mirrors stopped responding,electrical_battery_service
+dashboard display goes off and comes back,electrical_battery_service
+the battery does not hold charge,electrical_battery_service
+the car starts only after boosting the battery,electrical_battery_service
+one headlight is flickering while driving,electrical_battery_service
+the radio resets every time I start the car,electrical_battery_service
+the trunk lock does not open electronically,electrical_battery_service
+power seat controls are not working,electrical_battery_service
+the battery light appears and disappears,electrical_battery_service
+starter sounds weak in the morning,electrical_battery_service
+the vehicle loses electrical power suddenly,electrical_battery_service
+the car alarm keeps acting strangely,electrical_battery_service
+the battery drains even when the car is parked,electrical_battery_service
+dashboard gauges stop working sometimes,electrical_battery_service
+the electric windows move very slowly,electrical_battery_service
+interior screen turns black randomly,electrical_battery_service
+the car has trouble starting after one day parked,electrical_battery_service
+there is no response from the remote key,electrical_battery_service
+lights inside the cabin are very dim,electrical_battery_service
+the engine cranks weakly before startup,electrical_battery_service
+USB charging port is dead,electrical_battery_service
+horn and steering buttons stopped working,electrical_battery_service
+the car needs repeated jump starts,electrical_battery_service
+the battery seems weak after short trips,electrical_battery_service
+rear camera and screen are not powered,electrical_battery_service
+one side indicator stopped working,electrical_battery_service
+dashboard warning lights flash together,electrical_battery_service
+the electrical system cuts out for a second,electrical_battery_service
+the battery cable area gets hot,electrical_battery_service
+the car loses power to accessories,electrical_battery_service
+the mirror controls are dead,electrical_battery_service
+the keyless entry system does not work,electrical_battery_service
+the battery goes flat every few days,electrical_battery_service
+lights and radio turn off while idling,electrical_battery_service
+the vehicle has electrical faults after rain,electrical_battery_service
+headlights dim when the AC is turned on,electrical_battery_service
+the car does not crank unless boosted,electrical_battery_service
+dashboard and interior lights flicker together,electrical_battery_service
+wipers and washers stopped working,electrical_battery_service
+the charging system seems unstable,electrical_battery_service
+the battery warning stays on while driving,electrical_battery_service
+electrical accessories stop working randomly,electrical_battery_service
+the car battery goes weak after leaving the lights on for a short time,electrical_battery_service
+my vehicle starts very slowly first thing in the morning,electrical_battery_service
+the dashboard becomes dark for a moment while driving,electrical_battery_service
+the headlights pulse brighter and dimmer at night,electrical_battery_service
+the engine barely turns over when I try to start it,electrical_battery_service
+the battery dies if the car stays parked for two days,electrical_battery_service
+the radio and screen shut off suddenly while moving,electrical_battery_service
+the starter sounds weak and tired on every start,electrical_battery_service
+the power locks work sometimes and fail other times,electrical_battery_service
+the cabin lights are much weaker than before,electrical_battery_service
+the car needs jumper cables almost every week,electrical_battery_service
+the battery loses charge even after a long drive,electrical_battery_service
+the dashboard lights blink when I press the brake,electrical_battery_service
+the key does not unlock the car remotely anymore,electrical_battery_service
+the side windows stopped opening from the driver button,electrical_battery_service
+the warning lights flash together when I start the car,electrical_battery_service
+the car struggles to crank after being parked overnight,electrical_battery_service
+the interior screen freezes and restarts on its own,electrical_battery_service
+the headlamps get very dim when the engine is idling,electrical_battery_service
+the battery indicator stays visible even after charging,electrical_battery_service
+the horn works only sometimes now,electrical_battery_service
+the central locking system stopped responding completely,electrical_battery_service
+the battery seems fine one day and dead the next,electrical_battery_service
+the electric mirrors are not adjusting anymore,electrical_battery_service
+the car has no power at all when I turn the key,electrical_battery_service
+the windshield wipers slowed down a lot recently,electrical_battery_service
+the charging port inside the car stopped giving power,electrical_battery_service
+the engine clicks once but does not start,electrical_battery_service
+the dashboard resets as if the battery was disconnected,electrical_battery_service
+the lights flicker more when I use other electrical features,electrical_battery_service
+the battery keeps running flat after short city trips,electrical_battery_service
+the remote entry stopped working after the rain,electrical_battery_service
+the rear lights become weak while the car is standing,electrical_battery_service
+the car loses accessory power while waiting at signals,electrical_battery_service
+the starter cranks very slowly in cold weather,electrical_battery_service
+the power seat controls stopped moving suddenly,electrical_battery_service
+the battery terminal area smells hot after driving,electrical_battery_service
+the dashboard display and radio go off together,electrical_battery_service
+the electrical system feels unstable whenever I use the AC,electrical_battery_service
+the vehicle needs repeated charging to keep starting,electrical_battery_service
+brakes make squeaking noise when stopping,brake_service
+brake pedal feels soft and weak,brake_service
+car takes longer distance to stop,brake_service
+steering shakes when I press the brake,brake_service
+grinding sound comes from the brakes,brake_service
+brake warning light turned on,brake_service
+car pulls to one side while braking,brake_service
+pedal goes down too much before the car stops,brake_service
+brakes feel weak on downhill roads,brake_service
+vibration happens every time I brake at high speed,brake_service
+rear brakes make loud noise,brake_service
+car does not stop smoothly when I press the brakes,brake_service
+brakes smell hot after short driving,brake_service
+pedal feels hard and stopping is uncomfortable,brake_service
+braking causes the car to wobble slightly,brake_service
+the car squeals whenever I use the brakes,brake_service
+brake pedal goes soft in traffic,brake_service
+the car needs strong pressure to stop,brake_service
+shaking starts only when braking,brake_service
+metal noise comes from the front brakes,brake_service
+the vehicle drifts left during braking,brake_service
+the brake pedal feels spongy,brake_service
+stopping distance is longer than usual,brake_service
+the car vibrates while slowing down,brake_service
+the brake light warning stays on,brake_service
+the brakes make scraping sounds,brake_service
+the car does not stop quickly in emergency braking,brake_service
+brake pedal sinks lower than normal,brake_service
+burning smell appears after braking downhill,brake_service
+the steering wheel trembles while braking,brake_service
+there is a sharp noise from the brake area,brake_service
+the brake response is delayed,brake_service
+the car shudders when I press the brake pedal,brake_service
+front brakes are noisy at low speed,brake_service
+the pedal feels too hard when stopping,brake_service
+the car jerks while braking to a stop,brake_service
+brakes overheat after city driving,brake_service
+the brake pedal has little resistance,brake_service
+the car feels unsafe during braking,brake_service
+rear wheel area makes brake noise,brake_service
+I hear grinding when slowing the car,brake_service
+the car pulls right whenever I brake,brake_service
+the brake pedal feels loose,brake_service
+the vehicle stops with vibration,brake_service
+noise from brakes becomes louder in the morning,brake_service
+the brake pedal travels too far down,brake_service
+braking at highway speed causes shaking,brake_service
+the car takes too much time to stop,brake_service
+the brakes squeal after rain,brake_service
+pedal feedback feels abnormal when braking,brake_service
+the car dips and shakes under braking,brake_service
+there is rubbing noise from the brake side,brake_service
+the brake warning appears after driving,brake_service
+the pedal pulses while braking,brake_service
+the car stops unevenly when I use the brakes,brake_service
+the brakes feel weak with passengers in the car,brake_service
+grinding starts when I approach a stop sign,brake_service
+the vehicle vibrates only during braking,brake_service
+the brake system feels worn out,brake_service
+the car does not brake smoothly in traffic,brake_service
+the car makes a sharp squeal every time I slow down,brake_service
+my brake pedal feels too low when stopping at signals,brake_service
+the vehicle needs more distance than before to come to a stop,brake_service
+the steering wheel shakes hard only when I brake,brake_service
+there is a scraping noise from the front when I press the brakes,brake_service
+the brake pedal feels soft after driving for a while,brake_service
+the car pulls left whenever I brake suddenly,brake_service
+braking downhill feels much weaker than normal,brake_service
+I hear metal rubbing sounds when stopping slowly,brake_service
+the brake warning sign appears after city driving,brake_service
+the car vibrates when I slow down from highway speed,brake_service
+the brake pedal sinks deeper than it used to,brake_service
+there is a burning smell after using the brakes in traffic,brake_service
+the car shudders during braking near stop signs,brake_service
+the rear side makes noise while braking at low speed,brake_service
+my car does not stop as quickly in emergency braking,brake_service
+the brake pedal feels loose and not firm,brake_service
+there is a grinding sound every morning when I brake,brake_service
+the vehicle shakes while coming to a complete stop,brake_service
+the brake response feels delayed in crowded roads,brake_service
+the steering trembles only during braking on fast roads,brake_service
+the pedal becomes spongy after a long drive,brake_service
+the car dips too much when I hit the brakes,brake_service
+there is a harsh rubbing noise from the brake area,brake_service
+the brake pedal travels too far before the car stops,brake_service
+the car feels unsafe because braking has become weak,brake_service
+a loud squeak starts when I press the brake lightly,brake_service
+the brakes pulse strangely under my foot,brake_service
+the car drifts right when braking from medium speed,brake_service
+the stopping feel is rough and shaky,brake_service
+the pedal feels hard but the car still does not stop well,brake_service
+there is vibration from the front when braking downhill,brake_service
+the brakes smell overheated after short trips,brake_service
+the car wobbles when I brake on a straight road,brake_service
+the braking force feels uneven between the wheels,brake_service
+the brake pedal has very little resistance lately,brake_service
+the vehicle makes grinding noise when approaching traffic lights,brake_service
+the brake system feels noisy and weak at the same time,brake_service
+the car takes too long to stop in wet roads,brake_service
+there is brake shake and squeal together at low speed,brake_service
+front left tire loses air quickly,tire_wheel_service
+car has a flat tire after parking,tire_wheel_service
+steering wheel vibrates at high speed,tire_wheel_service
+tires are wearing unevenly,tire_wheel_service
+car pulls to one side while driving straight,tire_wheel_service
+wheel alignment feels off,tire_wheel_service
+tire pressure warning keeps appearing,tire_wheel_service
+one wheel makes noise while moving,tire_wheel_service
+car shakes after changing the tires,tire_wheel_service
+wheel balance seems bad on the highway,tire_wheel_service
+front tires are worn out from the edges,tire_wheel_service
+rim looks bent after hitting a pothole,tire_wheel_service
+car bounces more than normal on rough roads,tire_wheel_service
+back tire keeps getting punctured,tire_wheel_service
+vehicle feels unstable because of the wheels,tire_wheel_service
+the car drifts right without braking,tire_wheel_service
+front wheel vibration starts above 90 kmh,tire_wheel_service
+one tire loses pressure every two days,tire_wheel_service
+uneven wear appears on the rear tires,tire_wheel_service
+the steering wheel shakes on the highway,tire_wheel_service
+the rim got damaged after hitting a curb,tire_wheel_service
+wheel alignment needs adjustment,tire_wheel_service
+the car leans to one side while moving,tire_wheel_service
+road noise is coming from one tire,tire_wheel_service
+the vehicle shakes at high speed after tire change,tire_wheel_service
+rear tire keeps going flat,tire_wheel_service
+the pressure sensor warning comes back often,tire_wheel_service
+the car feels unstable on smooth roads,tire_wheel_service
+one wheel seems unbalanced,tire_wheel_service
+the tire sidewall got damaged,tire_wheel_service
+the car vibrates while cruising fast,tire_wheel_service
+there is thumping noise from a wheel,tire_wheel_service
+front right tire pressure drops overnight,tire_wheel_service
+the vehicle pulls left on straight roads,tire_wheel_service
+tires are worn more on one side,tire_wheel_service
+a wheel feels bent after pothole impact,tire_wheel_service
+the steering feels off because of alignment,tire_wheel_service
+the car shakes more after new rims,tire_wheel_service
+rear wheels feel unstable on the highway,tire_wheel_service
+one tire keeps getting low pressure,tire_wheel_service
+wheel balance feels wrong above city speed,tire_wheel_service
+the rim is scratched and slightly bent,tire_wheel_service
+the front tires make humming noise,tire_wheel_service
+the vehicle sways due to wheel issues,tire_wheel_service
+alignment feels bad after suspension work,tire_wheel_service
+the car bounces because of tire problems,tire_wheel_service
+one side of the tire is wearing fast,tire_wheel_service
+the wheel area makes rotational noise,tire_wheel_service
+the car vibrates at 100 kmh,tire_wheel_service
+tire pressure drops after parking overnight,tire_wheel_service
+the front wheel feels loose while driving,tire_wheel_service
+one rim was damaged in a small road impact,tire_wheel_service
+the car does not track straight,tire_wheel_service
+there is a wobble coming from the wheels,tire_wheel_service
+wheel and tire condition feels unsafe,tire_wheel_service
+the vehicle shakes on fast roads,tire_wheel_service
+rear tire puncture happened again,tire_wheel_service
+the steering wheel tremor increases with speed,tire_wheel_service
+the car needs wheel balancing,tire_wheel_service
+the tires are wearing badly from poor alignment,tire_wheel_service
+the steering wheel vibrates badly once I drive above 100 kmh,tire_wheel_service
+one tire keeps losing air every few days,tire_wheel_service
+the car drifts to the right even on a straight road,tire_wheel_service
+my front wheels feel unstable at highway speed,tire_wheel_service
+the tire pressure warning comes back every morning,tire_wheel_service
+there is a wobbling feeling from the wheels while driving,tire_wheel_service
+the car shakes after replacing the front tires,tire_wheel_service
+one rim got bent after I hit a deep pothole,tire_wheel_service
+the vehicle feels unbalanced on smooth roads,tire_wheel_service
+rear tire pressure drops much faster than the others,tire_wheel_service
+the tires are wearing more on the inside edges,tire_wheel_service
+the steering pulls left without touching the brakes,tire_wheel_service
+there is a humming sound coming from one tire,tire_wheel_service
+the car bounces too much because of the wheel condition,tire_wheel_service
+the wheel balance feels wrong when I speed up,tire_wheel_service
+a front tire went flat after parking overnight,tire_wheel_service
+the car no longer tracks straight on the highway,tire_wheel_service
+there is a rotating noise from the front wheel area,tire_wheel_service
+the vehicle sways slightly because of wheel issues,tire_wheel_service
+one tire keeps getting punctured again and again,tire_wheel_service
+the steering tremor becomes stronger as speed increases,tire_wheel_service
+the rims feel damaged after hitting the curb,tire_wheel_service
+tire wear looks uneven on both rear wheels,tire_wheel_service
+my car shakes only when driving fast not when braking,tire_wheel_service
+the alignment seems off after driving over rough roads,tire_wheel_service
+the front right tire is always lower than the others,tire_wheel_service
+there is a thumping noise from one wheel while moving,tire_wheel_service
+the car leans slightly to one side while driving,tire_wheel_service
+wheel vibration started after installing new rims,tire_wheel_service
+the vehicle feels unstable on corners because of the tires,tire_wheel_service
+the tire sidewall looks damaged after a road impact,tire_wheel_service
+one wheel seems poorly balanced at medium speed,tire_wheel_service
+the steering feels crooked even when the wheels are straight,tire_wheel_service
+the car drifts on flat roads without any brake input,tire_wheel_service
+rear wheels feel shaky at higher speeds,tire_wheel_service
+the tire noise became louder after the last trip,tire_wheel_service
+there is visible wear on one side of the front tires,tire_wheel_service
+the vehicle vibrates after driving over 90 kmh,tire_wheel_service
+the car needs alignment because it pulls to one side,tire_wheel_service
+wheel and tire issues are making the ride feel unsafe,tire_wheel_service
+ac blows warm air instead of cold,ac_service
+air conditioner is not cooling the cabin,ac_service
+ac airflow is very weak,ac_service
+bad smell comes from the ac vents,ac_service
+cooling works only for a few minutes,ac_service
+ac makes strange noise when turned on,ac_service
+rear vents are not blowing air,ac_service
+car cabin stays hot even when ac is on,ac_service
+temperature from vents changes randomly,ac_service
+ac stops working in traffic,ac_service
+fan works but the air is not cold,ac_service
+air conditioning takes too long to cool,ac_service
+water drips inside the cabin when ac is on,ac_service
+ac compressor sound is louder than usual,ac_service
+front vents blow hot air all the time,ac_service
+the ac is not cold during the afternoon,ac_service
+cool air disappears after a short drive,ac_service
+there is a musty smell from the ventilation,ac_service
+airflow from the vents is very low,ac_service
+the cabin remains warm even with full ac,ac_service
+the ac makes a rattling sound on startup,ac_service
+cold air comes and goes from the dashboard vents,ac_service
+rear seat cooling is not working,ac_service
+the blower works but cooling is weak,ac_service
+the car takes too long to become cool,ac_service
+water is leaking from the ac area inside,ac_service
+the ventilation smell is unpleasant,ac_service
+ac performance drops in heavy traffic,ac_service
+the vents are blowing only warm air,ac_service
+the cooling stops after a few minutes,ac_service
+the front ac is weak but the fan runs,ac_service
+air conditioning noise increases when turned on,ac_service
+the ac cannot cool the cabin properly,ac_service
+the car interior stays hot on long drives,ac_service
+temperature from the vents is inconsistent,ac_service
+the ac works only when the car is moving fast,ac_service
+there is a bad odor when ac starts,ac_service
+the airflow feels blocked from the front vents,ac_service
+the cooling fan sounds normal but air is warm,ac_service
+the ac struggles to cool at noon,ac_service
+the passenger side vent is not cooling well,ac_service
+cold air is weaker than before,ac_service
+water collects near the passenger foot area from ac,ac_service
+the ac compressor noise became noticeable,ac_service
+the system blows hot air after idling,ac_service
+vent cooling changes suddenly while driving,ac_service
+air from the vents is humid and warm,ac_service
+the ac needs a long time to cool the car,ac_service
+back vents have almost no airflow,ac_service
+the ac turns on but the cabin does not cool,ac_service
+fan speed changes but cooling does not improve,ac_service
+the air conditioner smells dusty,ac_service
+the dashboard vents are not cooling evenly,ac_service
+the cooling disappears in stop and go traffic,ac_service
+the climate system is noisy and weak,ac_service
+the ac is colder on one side only,ac_service
+the vents blow warm air after startup,ac_service
+cool air lasts only for a moment,ac_service
+the cabin feels hot although the ac is running,ac_service
+the air conditioner is working poorly,ac_service
+front bumper is cracked after a small accident,body_work_service
+deep scratch on the left door,body_work_service
+rear bumper has a large dent,body_work_service
+paint is peeling from the hood,body_work_service
+side mirror is broken,body_work_service
+front fender is damaged after collision,body_work_service
+car body has many scratches on one side,body_work_service
+trunk does not close well after impact,body_work_service
+roof has a dent from falling object,body_work_service
+door panel is bent and scratched,body_work_service
+paint color faded on the front bumper,body_work_service
+small accident damaged the right side body,body_work_service
+front grill is broken,body_work_service
+car exterior needs repainting after scratches,body_work_service
+rear door is misaligned after crash,body_work_service
+the bumper got scratched in parking,body_work_service
+there is a dent on the passenger door,body_work_service
+the paint is damaged near the rear wheel arch,body_work_service
+side mirror cover came off after a hit,body_work_service
+front body panel is bent,body_work_service
+the car needs paint repair on the hood,body_work_service
+rear bumper paint is cracked,body_work_service
+the trunk lid is not aligned correctly,body_work_service
+there are scratches across the right side of the car,body_work_service
+the front fender has a visible dent,body_work_service
+body damage happened after a minor collision,body_work_service
+the exterior panel is scratched and bent,body_work_service
+paint has chipped near the front door,body_work_service
+one mirror is hanging loose,body_work_service
+the bumper needs repair after impact,body_work_service
+the roof panel has a deep dent,body_work_service
+the body line near the rear door is damaged,body_work_service
+the front grill and bumper are broken,body_work_service
+paint damage is visible on the side panel,body_work_service
+door edge got bent after an accident,body_work_service
+the trunk area was hit and is misaligned,body_work_service
+the car body needs dent removal,body_work_service
+left door has long scratches,body_work_service
+rear quarter panel is damaged,body_work_service
+the hood paint is faded and peeling,body_work_service
+the bumper is loose after a small crash,body_work_service
+there is collision damage on the front side,body_work_service
+the car exterior has several dents,body_work_service
+the right mirror broke during parking,body_work_service
+paint scratches need polishing and repainting,body_work_service
+one body panel does not fit properly now,body_work_service
+front corner of the car is dented,body_work_service
+the rear bumper is scratched and cracked,body_work_service
+the side of the car needs body repair,body_work_service
+the front door has paint and dent damage,body_work_service
+the body needs repair after a roadside hit,body_work_service
+the exterior metal near the wheel is bent,body_work_service
+the tailgate does not align after impact,body_work_service
+paint peeling is spreading on the roof,body_work_service
+the car needs bumper and fender repair,body_work_service
+there are visible dents on the rear side,body_work_service
+mirror glass and cover are damaged,body_work_service
+the left side bodywork was damaged in traffic,body_work_service
+the car has cosmetic damage from an accident,body_work_service
+scratches and dents cover the front bumper,body_work_service
+the cabin stays warm even with the AC on full,ac_service
+cold air becomes weak after a few minutes of driving,ac_service
+the vents are blowing slightly cool but not cold air,ac_service
+there is a strange smell every time I start the AC,ac_service
+airflow from the front vents feels much weaker than before,ac_service
+the AC works badly during the afternoon heat,ac_service
+the car interior does not cool down on long trips,ac_service
+cooling disappears when the vehicle is stuck in traffic,ac_service
+the fan is running but the air is still warm,ac_service
+one side of the dashboard vents feels colder than the other,ac_service
+the AC takes too long to make the cabin comfortable,ac_service
+a bad damp smell comes from the air vents,ac_service
+cold air stops coming after the car idles for a while,ac_service
+the air conditioner sounds noisy when I switch it on,ac_service
+rear passengers are not getting enough cool air,ac_service
+the AC blows warm air right after startup,ac_service
+there is water leaking near the passenger side when AC is on,ac_service
+the cooling gets weaker the longer I drive,ac_service
+the airflow is strong but the temperature is still hot,ac_service
+the car remains hot inside although the fan is working,ac_service
+the vents change from cool to warm by themselves,ac_service
+air from the AC smells dusty and unpleasant,ac_service
+cooling is poor when the weather is very hot,ac_service
+the front AC is weak but the back vents work better,ac_service
+the AC noise becomes louder in stop and go traffic,ac_service
+the system cools for a short time and then stops,ac_service
+there is almost no air coming from the middle vents,ac_service
+the temperature inside the cabin stays high all day,ac_service
+the AC feels colder while driving fast than while standing,ac_service
+warm humid air comes out of the vents,ac_service
+the airflow drops suddenly without changing fan speed,ac_service
+the AC is not keeping the car cool anymore,ac_service
+one vent barely blows any air now,ac_service
+the cooling is uneven across the cabin,ac_service
+the air conditioner makes a rattling sound at low speed,ac_service
+the cabin heats up quickly whenever the car stops moving,ac_service
+the AC starts fine but loses cooling after a while,ac_service
+the ventilation smells bad especially in the morning,ac_service
+the passenger area stays hot even when the driver side is cooler,ac_service
+the air conditioner is working but performance is much weaker now,ac_service
+the front bumper got dented while parking,body_work_service
+there is a long scratch across the rear door,body_work_service
+the hood paint is peeling near the edges,body_work_service
+my side mirror housing cracked after a small hit,body_work_service
+the rear bumper is loose after a light collision,body_work_service
+the left fender has a deep dent from traffic,body_work_service
+the car body has fresh scratches on the passenger side,body_work_service
+the trunk is slightly bent and does not close properly,body_work_service
+paint chipped off near the front wheel arch,body_work_service
+the roof has a visible dent after something fell on it,body_work_service
+the front grill is broken and needs replacement,body_work_service
+there is cosmetic damage on the right side of the car,body_work_service
+the door has both scratches and a small dent,body_work_service
+the bumper paint cracked after hitting a pole,body_work_service
+the body panel near the rear light is damaged,body_work_service
+one mirror is hanging after being hit,body_work_service
+the car needs repainting because of multiple scratches,body_work_service
+the rear side panel is bent after an accident,body_work_service
+the front corner of the bumper is badly scratched,body_work_service
+the tailgate alignment looks wrong after impact,body_work_service
+there are several dents along the left side body,body_work_service
+the hood has faded paint and visible surface damage,body_work_service
+the front door edge was bent in a parking accident,body_work_service
+the bumper and fender both need repair,body_work_service
+the exterior metal near the back wheel is dented,body_work_service
+the right rear door no longer lines up correctly,body_work_service
+the car body needs dent fixing and paint work,body_work_service
+there is a crack on the lower part of the front bumper,body_work_service
+the side panel has deep scratches from road contact,body_work_service
+the mirror glass broke after a side hit,body_work_service
+the rear bumper has paint damage and a dent,body_work_service
+one body panel looks pushed inward after collision,body_work_service
+there are visible marks and dents on the hood,body_work_service
+the left side of the car was scraped in traffic,body_work_service
+the front fender paint is damaged and chipped,body_work_service
+the trunk lid shifted after a small crash,body_work_service
+the front bodywork has cosmetic damage from an accident,body_work_service
+the door panel needs straightening and repainting,body_work_service
+the bumper is scratched cracked and slightly bent,body_work_service
+the vehicle needs body repair after being hit from the side,body_work_service

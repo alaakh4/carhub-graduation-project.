@@ -1,0 +1,101 @@
+<div class="help-order-app">
+  <section class="page-header">
+    <div class="container">
+      <h1>Request Service</h1>
+      <p>Send a service request to the shop for workshop visit or home service</p>
+    </div>
+  </section>
+
+  <main class="help-order-main">
+    <div class="container">
+      <div class="help-order-card">
+        <div class="help-order-card-header">
+          <h2>Service Request Form</h2>
+          <p>Fill in your details and describe the issue with your car</p>
+        </div>
+
+        <oj-bind-if test="[[aiSuggestion()]]">
+          <div class="form-message info">
+            <i class="fas fa-wand-magic-sparkles"></i>
+            <span data-bind="text: aiSuggestion"></span>
+          </div>
+        </oj-bind-if>
+
+        <form class="help-order-form" data-bind="submit: submitHelpOrder">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input id="fname" type="text" class="form-input" data-bind="value: form.fname"
+                placeholder="Enter first name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input id="lname" type="text" class="form-input" data-bind="value: form.lname"
+                placeholder="Enter last name" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input id="phone" type="text" class="form-input" data-bind="value: form.phone"
+                placeholder="Enter phone number" required />
+            </div>
+
+            <div class="form-group">
+              <label for="shopSelect">Workshop</label>
+              <select id="shopSelect" class="form-input" data-bind="value: form.shop_id, enable: !isLoadingShops()">
+                <option value="" disabled>Select a shop</option>
+                <oj-bind-for-each data="[[shopsList]]">
+                  <template>
+                    <option data-bind="value: $current.data.id, text: $current.data.name"></option>
+                  </template>
+                </oj-bind-for-each>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceType">Service Type</label>
+            <select id="serviceType" class="form-input" data-bind="value: form.is_home_service">
+              <option value="0">Workshop Visit</option>
+              <option value="1">Home Service</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input id="address" type="text" class="form-input"
+              data-bind="value: form.address, enable: isHomeServiceSelected" placeholder="Enter your address" />
+          </div>
+
+          <div class="form-group">
+            <label for="details">Problem Details</label>
+            <textarea id="details" class="form-textarea" data-bind="value: form.details"
+              placeholder="Describe the problem with your car..." required></textarea>
+          </div>
+
+          <oj-bind-if test="[[errorMessage()]]">
+            <div class="form-message error">
+              <i class="fas fa-circle-exclamation"></i>
+              <span data-bind="text: errorMessage"></span>
+            </div>
+          </oj-bind-if>
+
+          <oj-bind-if test="[[successMessage()]]">
+            <div class="form-message success">
+              <i class="fas fa-circle-check"></i>
+              <span data-bind="text: successMessage"></span>
+            </div>
+          </oj-bind-if>
+
+          <button type="submit" class="submit-btn" data-bind="disable: isSubmitting">
+            <i class="fas fa-paper-plane"></i>
+            <span data-bind="text: isSubmitting() ? 'Sending...' : 'Send Request'"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>

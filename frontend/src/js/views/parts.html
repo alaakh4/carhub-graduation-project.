@@ -1,0 +1,201 @@
+<!-- AutoCare Hub - Parts page (JET view, header/footer are in index.html) -->
+<div class="parts-app">
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Auto Parts Marketplace</h1>
+      <p>Find quality parts for your vehicle at competitive prices</p>
+
+      <div class="header-search">
+        <input class="search-input-large" type="text" placeholder="Search parts, brands, OEM numbers..."
+          data-bind="value: searchQuery, valueUpdate: 'afterkeydown', event: { keydown: onSearchKeyDown }" />
+        <button class="search-btn-large" type="button" data-bind="click: submitSearch">
+          <i class="fas fa-search"></i>
+          Search
+        </button>
+      </div>
+
+      <p class="search-status" data-bind="visible: hasActiveSearch">
+        Search results for "<span data-bind="text: activeSearchQuery"></span>"
+      </p>
+    </div>
+  </section>
+  <oj-dialog id="guestDialog" dialog-title="Login To Use Cart" aria-describedby="desc">
+    <div class="oj-dialog-body" slot="body">
+      <p>
+        Please login first!
+      </p>
+    </div>
+    <div slot="footer" class="oj-dialog-footer">
+      <oj-button on-oj-action="[[onGuestOk]]">OK</oj-button>
+    </div>
+  </oj-dialog>
+  <!-- Main Layout -->
+  <section class="parts-main">
+    <div class="container">
+      <div class="parts-layout">
+
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar" aria-label="Filters">
+          <div class="filter-header">
+            <h3>Filters</h3>
+            <button class="clear-filters" type="button" data-bind="click: clearAll">Clear All</button>
+          </div>
+
+          <div class="filter-group">
+            <h4>Category</h4>
+            <label><input type="checkbox" value="brakes" data-bind="checked: selectedCategories"> Brakes</label>
+            <label><input type="checkbox" value="engine" data-bind="checked: selectedCategories"> Engine</label><br />
+            <label><input type="checkbox" value="filters & fluids" data-bind="checked: selectedCategories"> Filters
+              &amp; Fluids</label><br />
+            <label><input type="checkbox" value="suspension" data-bind="checked: selectedCategories">
+              Suspension</label><br />
+            <label><input type="checkbox" value="electrical & lighting" data-bind="checked: selectedCategories">
+              Electrical &amp; Lighting</label><br />
+            <label><input type="checkbox" value="wheels & accessories" data-bind="checked: selectedCategories"> Wheels
+              &amp; Accessories</label>
+          </div>
+
+          <div class="filter-group">
+            <h4>Brand</h4>
+            <label><input type="checkbox" value="bosch" data-bind="checked: selectedBrands"> Bosch</label>
+            <label><input type="checkbox" value="denso" data-bind="checked: selectedBrands"> Denso</label><br />
+            <label><input type="checkbox" value="brembo" data-bind="checked: selectedBrands"> Brembo</label>
+            <label><input type="checkbox" value="mann-filter" data-bind="checked: selectedBrands">
+              MANN-FILTER</label><br />
+            <label><input type="checkbox" value="ngk" data-bind="checked: selectedBrands"> NGK</label>
+            <label><input type="checkbox" value="mobil 1" data-bind="checked: selectedBrands"> Mobil 1</label>
+          </div>
+
+          <div class="filter-group">
+            <h4>Price</h4>
+
+            <!-- Amazon-style range filter (slider + min/max inputs) -->
+            <div class="price-range-box">
+              <oj-range-slider min="[[priceMinBound]]" max="[[priceMaxBound]]" step="1" value="{{priceRange}}"
+                aria-label="Price range" style="width: 100%;">
+              </oj-range-slider>
+
+              <div class="price-minmax" style="display:flex; gap:10px; margin-top:10px; align-items:flex-end;">
+                <oj-input-number label-hint="Min" value="{{priceRange().start}}" style="flex: 1; min-width: 110px;"
+                  display-options='{"validatorHint":"none","converterHint":"none","title":"none"}'></oj-input-number>
+                </oj-input-number>
+
+                <oj-input-number label-hint="Max" value="{{priceRange().end}}" style="flex: 1; min-width: 110px;"
+                  display-options='{"validatorHint":"none","converterHint":"none","title":"none"}'></oj-input-number>
+                </oj-input-number>
+              </div>
+
+              <div class="price-preview" style="margin-top:6px; font-size: 12px; color:#666;">
+                <span>Range: </span>
+                <strong data-bind="text: priceRange().start + ' EGP'"></strong>
+                <span> - </span>
+                <strong data-bind="text: priceRange().end + ' EGP'"></strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Rating</h4>
+            <label><input type="radio" name="rating" value="" data-bind="checked: selectedRate"> All</label><br />
+            <label><input type="radio" name="rating" value="4" data-bind="checked: selectedRate"> 4★ & up</label><br />
+            <label><input type="radio" name="rating" value="3" data-bind="checked: selectedRate"> 3★ & up</label><br />
+            <label><input type="radio" name="rating" value="2" data-bind="checked: selectedRate"> 2★ & up</label>
+          </div>
+
+          <div class="filter-group">
+            <h4>Availability</h4>
+            <label><input type="checkbox" value="instock" data-bind="checked: selectedInStock"> In stock</label>
+          </div>
+        </aside>
+
+        <!-- Parts Content -->
+        <div class="parts-content">
+          <div class="content-header">
+            <div class="results-count">Showing <strong data-bind="text: NOParts"></strong> results</div>
+
+            <select class="sort-select" aria-label="Sort" data-bind="value: sortBy">
+              <option value="top">Top Rated</option>
+              <option value="new">Newest</option>
+              <option value="price_low">Price: Low to High</option>
+              <option value="price_high">Price: High to Low</option>
+            </select>
+          </div>
+
+          <div class="parts-grid">
+            <oj-bind-for-each data="[[selectedParts]]">
+              <template data-oj-as="part">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img :src="[[part.data.default_img || 'css/images/front.jpeg']]">
+                  </div>
+                  <div :id="[['partInfo-' + part.data.id]]" class="product-info" data-bind="click: viewPartDetail">
+                    <div class="product-brand" data-bind="text: $current.data.brand"></div>
+                    <h3 data-bind="text: $current.data.name"></h3>
+                    <div class="product-rating">
+                      <div class="stars">
+                        <span class="stars-empty">
+                          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </span>
+
+                        <span class="stars-fill" data-bind="style:{ width: ratePercent(part.data.rate,'minus') }">
+                          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                      <span class="rating-text">
+                        (<oj-bind-text value="[[part.data.rate_count]]"></oj-bind-text> reviews)
+                      </span>
+                    </div>
+
+
+                    <p class="product-description" data-bind="text: $current.data.details || ''"></p>
+                    <div class="product-availability">
+                      <oj-bind-if test="[[part.data.quantity > 0]]">
+                        <div>
+                          <i class="fas fa-check-circle"></i>
+                          <span>In Stock</span>
+                        </div>
+                      </oj-bind-if>
+                      <oj-bind-if test="[[part.data.quantity == 0]]">
+                        <div style="color: red;">
+                          <i class="fas fa-times-circle"></i>
+                          <span>Out of Stock</span>
+                        </div>
+                      </oj-bind-if>
+                    </div>
+                  </div>
+                  <div class="product-footer">
+                    <div class="price-section">
+                      <span class="price">&nbsp;&nbsp;<oj-bind-text value="[[part.data.price]]"></oj-bind-text> EGP</span>
+                    </div>
+                    <button :id="[[part.data.id + '_btn']]" class="btn-add-cart" type="button"
+                      data-bind="click:addCartBtn">
+                      <i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                  </div>
+                </div>
+              </template>
+            </oj-bind-for-each>
+          </div>
+
+          <div class="related-empty" data-bind="visible: !hasVisibleParts()">
+            No parts matched your current search and filters.
+          </div>
+
+          <div class="pagination" aria-label="Pagination">
+            <oj-button class="oj-button-sm" on-oj-action="[[previousPage]]"
+              disabled="[[previousBtnDisabled]]">Previous</oj-button>
+            <button class="page-btn active" data-bind="text: currentPage"></button>
+            <oj-button class="oj-button-sm" on-oj-action="[[nextPage]]" disabled="[[nextBtnDisabled]]">Next</oj-button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+</div>

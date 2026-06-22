@@ -1,0 +1,214 @@
+<div class="ac-home">
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Find the Best Car Maintenance Services Near You</h1>
+      <p class="hero-subtitle">Connect with trusted workshops and quality auto parts suppliers</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Workshops</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">10K+</span>
+          <span class="stat-label">Auto Parts</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">50K+</span>
+          <span class="stat-label">Happy Customers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <oj-dialog id="guestDialog" dialog-title="Login To Use Cart" aria-describedby="desc">
+    <div class="oj-dialog-body" slot="body">
+      <p>
+        Please login first!
+      </p>
+    </div>
+    <div slot="footer" class="oj-dialog-footer">
+      <oj-button on-oj-action="[[onGuestOk]]">OK</oj-button>
+    </div>
+  </oj-dialog>
+  <section class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Professional car maintenance services at your fingertips</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <img alt="Oil Change Service" src="../../css/images/oilchnage.png" />
+          </div>
+          <h3 class="service-title">Oil Change &amp; Maintenance</h3>
+          <p class="service-description">Regular oil changes and preventive maintenance to keep your car running
+            smoothly</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <img alt="Tire Services" src="../../css/images/tirechange.jpg" />
+          </div>
+          <h3 class="service-title">Tire Services</h3>
+          <p class="service-description">Tire replacement, rotation, balancing, and alignment services</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <img alt="Engine Repair" src="../../css/images/EngineRepair.jpg" />
+          </div>
+          <h3 class="service-title">Engine Repair</h3>
+          <p class="service-description">Expert engine diagnostics and repair services for all car models</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <img alt="Body Work" src="../../css/images/bodywork.jpg" />
+          </div>
+          <h3 class="service-title">Body Work &amp; Paint</h3>
+          <p class="service-description">Professional body repair and painting services for your vehicle</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-tools service-icon-fallback"></i>
+          </div>
+          <h3 class="service-title">Auto Parts Shop</h3>
+          <p class="service-description">Browse thousands of quality auto parts and accessories</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Get your car serviced in three simple steps</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3 class="step-title">Search &amp; Browse</h3>
+          <p class="step-description">Find workshops and auto parts near you. Compare prices, ratings, and services.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <h3 class="step-title">Compare &amp; Select</h3>
+          <p class="step-description">Review shop profiles, read customer reviews, and choose the best option for your
+            needs.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h3 class="step-title">Book or Order</h3>
+          <p class="step-description">Schedule a service appointment or order parts directly from the shop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workshops-section" id="workshops">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Workshops</h2>
+        <p class="section-subtitle">Top-rated workshops trusted by thousands of customers</p>
+      </div>
+      <div class="workshops-grid">
+        <oj-bind-for-each data="[[selectedShops]]">
+          <template data-oj-as="shop">
+            <div class="workshop-card">
+              <div class="workshop-image">
+                <img alt="Elite Auto Service"
+                  data-bind="attr:{src:  $current.data.photo_url}" />
+                <span class="workshop-badge">Top Rated</span>
+              </div>
+              <div class="workshop-content">
+                <h3 class="workshop-name" data-bind="text: $current.data.name"></h3>
+                <div class="workshop-rating">
+                  <div class="stars">
+                    <span class="stars-empty">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </span>
+
+                    <span class="stars-fill" data-bind="style:{ width: ratePercentShop(shop.data.rate) }">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </span>
+                  </div>
+                  <span class="rating-text">(<oj-bind-text value="[[shop.data.rate_count]]"></oj-bind-text>
+                    reviews)</span>
+                </div>
+                <div class="workshop-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span><oj-bind-text value="[[shop.data.address]]"></oj-bind-text></span>
+                </div>
+                <div class="workshop-services" data-bind="foreach:$current.data.services.split(',').slice(0,3)">
+                  <span class="service-tag" data-bind="text:$data"></span>
+                </div>
+                <button class="workshop-btn" data-bind="click: viewShopDetail" :id="[['viewShop-' + shop.data.id]]">View Details</button>
+              </div>
+            </div>
+          </template>
+        </oj-bind-for-each>
+      </div>
+    </div>
+  </section>
+
+  <section class="parts-section" id="parts">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Popular Auto Parts</h2>
+        <p class="section-subtitle">Quality parts at competitive prices</p>
+      </div>
+      <div class="parts-grid">
+        <oj-bind-for-each data="[[selectedParts]]">
+          <template data-oj-as="item">
+            <div class="product-card">
+              <div class="product-image">
+                <img alt="Brake Pads" :src="[[item.data.default_img]]" />
+                <span class="product-badge " :class="[[item.data.type]]">
+                  <oj-bind-text value="[[item.data.type]]"></oj-bind-text></span>
+              </div>
+              <div class="product-content">
+                <div class="product-info-only" data-bind="click: viewPartDetail" :id="[['productInfo-' + item.data.id]]">
+                <h3 class="product-name" data-bind="text:$current.data.name"></h3>
+                <div>
+                  <div class="stars">
+                    <span class="stars-empty">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </span>
+
+                    <span class="stars-fill" data-bind="style:{ width: ratePercentPart(item.data.rate) }">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </span>
+                  </div>
+                  <span>(<oj-bind-text value="[[item.data.rate_count]]"></oj-bind-text>) reviews</span>
+                </div>
+                <div class="product-price">
+
+                  <span class="price-current"><oj-bind-text value="[[item.data.price]]"></oj-bind-text> EGP</span>
+                </div>
+                <div class="product-availability">
+                  <i class="fas fa-check-circle"></i>
+                  <span>In Stock</span>
+                </div>
+                </div>
+                <button data-bind="click: addCartBtn" :id="[[item.data.id + '_btn']]" class="add-to-cart-btn"
+                  type="button"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></button>
+              </div>
+            </div>
+          </template>
+        </oj-bind-for-each>
+      </div>
+    </div>
+  </section>
+</div>

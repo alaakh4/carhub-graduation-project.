@@ -1,0 +1,65 @@
+<div class="shopdash-page">
+  <div class="shopdash-panel">
+    <div class="panel-head">
+      <h3>Shop Profile</h3>
+    </div>
+
+    <div class="shop-profile" data-bind="ifnot: loading">
+      <div class="shop-profile-hero">
+        <div class="shop-profile-photo-wrap">
+          <!-- ko if: photoUrl -->
+          <img class="shop-profile-photo" data-bind="attr:{src: photoUrl, alt: name}">
+          <!-- /ko -->
+          <!-- ko ifnot: photoUrl -->
+          <div class="shop-profile-photo shop-profile-photo-fallback">
+            <i class="fas fa-store"></i>
+          </div>
+          <!-- /ko -->
+        </div>
+
+        <div class="shop-profile-main">
+          <div class="shop-profile-name" data-bind="text: name"></div>
+          <div class="shop-profile-email" data-bind="text: email"></div>
+          <div>
+            <span class="pill" data-bind="text: statusText, css: statusClass"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-profile-grid">
+        <div class="shop-profile-card">
+          <div class="shop-profile-label">Phone</div>
+          <div class="shop-profile-value" data-bind="text: phone"></div>
+        </div>
+
+        <div class="shop-profile-card">
+          <div class="shop-profile-label">City</div>
+          <div class="shop-profile-value" data-bind="text: city"></div>
+        </div>
+
+        <div class="shop-profile-card full">
+          <div class="shop-profile-label">Address</div>
+          <div class="shop-profile-value" data-bind="text: address"></div>
+        </div>
+
+        <div class="shop-profile-card full">
+          <div class="shop-profile-label">Description</div>
+          <div class="shop-profile-value" data-bind="text: description"></div>
+        </div>
+
+        <div class="shop-profile-card full">
+          <div class="shop-profile-label">Services</div>
+          <div class="shop-profile-value" data-bind="text: services"></div>
+        </div>
+      </div>
+
+      <div class="shop-profile-note">
+        Profile editing is not available yet in the current API.
+      </div>
+    </div>
+
+    <div class="shop-profile-loading" data-bind="if: loading">
+      Loading profile...
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="shopdash-page">
+  <div class="shopdash-panel">
+    <div class="panel-head">
+      <h3>Parts</h3>
+      <div class="panel-tools">
+        <button class="shopdash-btn" type="button" data-bind="click: addPart">Add Part</button>
+        <input class="input" placeholder="Search by name / brand / category"
+               data-bind="textInput: searchText" />
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Part</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Active</th>
+            <th class="right">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody data-bind="foreach: filteredParts">
+          <tr>
+            <td data-bind="text: name || '-'"></td>
+            <td data-bind="text: brand || '-'"></td>
+            <td data-bind="text: category || '-'"></td>
+            <td data-bind="text: '$' + Number(price || 0).toFixed(2)"></td>
+            <td data-bind="text: Number(quantity || 0)"></td>
+            <td data-bind="text: Number(is_active || 1) === 1 ? 'Yes' : 'No'"></td>
+            <td class="right">
+              <div class="actions">
+                <button class="mini" type="button" data-bind="click: $parent.editPart">Edit</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
